@@ -2,4 +2,4 @@
 
 Proof of concept game client implementation for [Dungeon-Adventure-Server](https://github.com/LearnedYet/Dungeon-Adventure-Server) server  
 
-![preview](https://github.com/LearnedYet/Dungeon-Adventure-Client/blob/master/preview-01.jpg)
+![preview](https://github.com/LearnedYet/Dungeon-Adventure-Client/blob/action-points/preview-01.jpg)
