@@ -1,0 +1,162 @@
+<div class=configurator-wrapper>
+    <div class=row>
+        <div class="col s5">
+            <button id=button_jobs class="btn blue darken-3 left">工作</button>
+        </div>
+        <div class="col s3">
+            <button id=button_quests class="btn green darken-2">任务<img id=new_quests_icon class=right src=./assets/icons/warning.png style=padding-top:9px;margin-left:2px;width:18px></button>
+        </div>
+        <div class="col s4">
+            <button id=button_lobby class="btn orange right darken-2">地下城</button>
+            <button id=button_training class="btn pink right darken-3">训练</button>
+        </div>
+    </div>
+    <div class=row style=padding:0;margin-left:-10px>
+        <div class="col s2">
+            <div class="center configurator-block">
+                <span id=unit_info class="light-green lighten-1"></span><br>
+                <div id=unit_icon class=selection-icon-big style=margin-top:4px></div>
+                <div>
+                    <button id=button_previous class="btn-small purple" style=padding:4px;line-height:0;max-height:20px>◀</button>
+                    <b><span id=label_class class="grey-text text-lighten-1"></span></b>
+                    <button id=button_next class="btn-small purple" style=padding:4px;line-height:0;max-height:20px>▶</button>
+                </div>
+            </div>
+            <div class=configurator-block style=margin-top:10px>
+                <span class="light-blue lighten-1">战利品：</span><br>
+                <span id=unit_booty class="grey-text text-lighten-4" style=padding:0></span><br>
+                <span class="light-blue lighten-1">成长：</span><br>
+                <span id=unit_progress class="grey-text text-lighten-4" style=padding:0></span><br>
+            </div>
+        </div>
+        <div class="col s2" style=padding:0>
+            <div class=configurator-block>
+                <span class="light-blue lighten-1">基础属性：</span><br>
+                <span id=label_health class="grey-text text-lighten-4">生命值：50</span>
+                <button id=button_health class="btn-plus right orange">+</button><br>
+                <span id=label_stamina class="grey-text text-lighten-4">体力：50</span>
+                <button id=button_stamina class="btn-plus right orange">+</button><br>
+                <span id=label_mana class="grey-text text-lighten-4">法力：50</span>
+                <button id=button_mana class="btn-plus right orange">+</button><br>
+                <span id=label_action_points class="grey-text text-lighten-4">行动点：8</span>
+                <br>
+                <br>
+                <span class="light-blue lighten-1">属性：</span><br>
+                <span id=label_strength class="grey-text text-lighten-4">力量：50</span>
+                <button id=button_strength class="btn-plus right orange">+</button><br>
+                <span id=label_physique class="grey-text text-lighten-4">体质：50</span>
+                <button id=button_physique class="btn-plus right orange">+</button><br>
+                <span id=label_agility class="grey-text text-lighten-4">敏捷：50</span>
+                <button id=button_agility class="btn-plus right orange">+</button><br>
+                <span id=label_endurance class="grey-text text-lighten-4">耐力：50</span>
+                <button id=button_endurance class="btn-plus right orange">+</button><br>
+                <span id=label_intelligence class="grey-text text-lighten-4">智力：50</span>
+                <button id=button_intelligence class="btn-plus right orange">+</button><br>
+                <span id=label_initiative class="grey-text text-lighten-4">先攻：50</span>
+                <button id=button_initiative class="btn-plus right orange">+</button><br>
+                <span id=label_luck class="grey-text text-lighten-4">幸运：50</span>
+                <button id=button_luck class="btn-plus right orange">+</button><br>
+                <button id=button_level_up class="btn-small center orange" style=margin-top:10px>升级</button>
+            </div>
+        </div>
+        <div class="col s2">
+            <div class=configurator-block>
+                <span class="light-blue lighten-1">抗性：</span><br>
+                <span id=unit_resistance class="grey-text text-lighten-4" style=padding:0></span>
+            </div>
+        </div>
+        <div style=margin:0>
+            <span class="orange-text lighten-3">
+                <img src=./assets/icons/leather-bag-potions.png style=vertical-align:middle;padding-bottom:2px;width:28px>
+                <b>商店</b>
+                <img src=./assets/icons/armory-gear.png style=vertical-align:middle;padding-bottom:4px;width:32px>
+            </span>
+            <button id=button_tab_shop_items class="btn-small purple" style=padding:4px;line-height:0;max-height:20px>物品</button>
+            <button id=button_tab_shop_armor class="btn-small purple" style=padding:4px;line-height:0;max-height:20px>护甲</button>
+            <button id=button_tab_shop_weapon class="btn-small purple" style=padding:4px;line-height:0;max-height:20px>武器</button>
+            <button id=button_tab_shop_ammunition class="btn-small purple" style=padding:4px;line-height:0;max-height:20px>弹药</button>
+            <button id=button_tab_shop_magic class="btn-small purple" style=padding:4px;line-height:0;max-height:20px>法术</button>
+        </div>
+        <div style=height:335px>
+            <div id=shop_items_container class="items-container-y col s6 scrollbar-y" style=max-height:324px;padding:0></div>
+        </div>
+        <span class="green-text lighten-3">
+            <img src=./assets/icons/backpack.png style=height:34px;vertical-align:middle;padding-bottom:4px>
+            <b>背包</b>
+        </span>
+        <label class="grey-text text-lighten-4" style=padding-left:20px>
+            <input id=checkbox_sell type=checkbox>
+            <span style=padding-left:24px>出售 <img src=./assets/icons/sell-item.png style=height:32px;vertical-align:middle;padding-bottom:8px;padding-left:4px></span>   
+        </label>
+        <label class="grey-text text-lighten-4">
+            <input id=checkbox_repair type=checkbox>
+            <span style=padding-left:24px>修理<img src=./assets/icons/repair-item.png style=height:32px;vertical-align:middle;padding-bottom:8px;padding-left:4px></span>
+        </label>
+        <button id=button_repair_all class="btn-small purple" style=padding:4px;line-height:0;max-height:20px;margin-top:-8px>全部修理</button>
+    </div>
+    <div id=unit_items_container class="items-container-x scrollbar-x" style="margin:-22px -3px -3px"></div>
+</div>
+<div id=popup_shadow class="popup-shadow hidden"></div>
+<div id=shop_item_popup class="shop-item-popup darken-4 hidden">
+    <div class=row>
+        <div class="col s4">
+            <div id=icon class=selection-icon></div><br>
+        </div>
+        <div class="col s8">
+            <span id=label_description class=orange-text>要购买此物品吗？</span><br>
+            <div id=label_price class="grey-text text-lighten-4" style=padding-top:6px> </div>
+            <div class=center style=margin-left:-12px>
+                <b><span id=label_quantity class=orange-text style=font-size:18px>1</span></b>
+            </div>
+            <div class=center style=margin-top:-12px;margin-bottom:-12px>
+                <div class=row>
+                    <div class=col style=padding:2px>
+                        <button class=btn-small id=button_minus style="margin-top:4px;padding:4px 8px 8px;line-height:0;height:24px;width:24px"><b>-</b></button>
+                    </div>
+                    <div class=col style=padding:2px>
+                        <input type=range min=1 max=10 value=10 class=h-slider style=width:134px id=slider_quantity>
+                    </div>
+                    <div class=col style=padding:2px>
+                        <button class=btn-small id=button_plus style="margin-top:4px;padding:4px 8px 8px;line-height:0;height:24px;width:24px"><b>+</b></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col s12 center" style=padding-top:10px>
+            <button id=button_yes class="btn-small green" style=margin-right:2px>是</button>
+            <button id=button_no class="btn-small red" style=margin-left:2px>否</button><br>
+        </div>
+    </div>
+</div>
+<div id=instructions_popup class="instructions-popup darken-4 hidden">
+    <div class=row>
+        <div class="col s2">
+            <img src=./assets/icons/king.png style=width:80px>
+        </div>
+        <div class="col s10">
+            <b><span class=amber-text>
+                    你好，旅行者。我是这片被遗忘之地的国王。阴影正在吞噬我的王国，可怕的野兽从黑暗中涌出。恶魔肆虐乡野，一条巨龙还将我的女儿掳入了深渊。我恳求勇敢的人们，深入噩梦的中心，帮助我们。
+                </span></b>
+            <div style=padding-left:16px;padding-top:10px>
+                <li class="grey-text text-lighten-4">
+                    用金币在 <span class="orange-text lighten-4" style=padding:0>商店</span> 购买武器和护符，武装自己。
+                </li>
+                <li class="grey-text text-lighten-4">
+                    接受 <span class="orange-text lighten-4" style=padding:0>任务</span>。猎人公会为勇于接受考验的人提供危险的委托。
+                </li>
+                <li class="grey-text text-lighten-4">
+                    接受 <span class="orange-text lighten-4" style=padding:0>工作</span> ，赚取应急的钱。报酬虽然不多，却能让你多撑一段时间。
+                </li>
+                <li class="grey-text text-lighten-4">
+                    深入 <span class="orange-text lighten-4" style=padding:0>地下城</span> ，直面黑暗。寻找同行的伙伴，为最终的考验做好准备。
+                </li>
+            </div>
+        </div>
+        
+        <div class="col s12 center" style=padding-top:10px>
+            <button id=button_ok class="btn-small blue">确定</button><br>
+        </div>
+    </div>
+</div>
+<div id=item_description_popup class="item-description-popup grey-text text-lighten-4"></div>

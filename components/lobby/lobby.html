@@ -1,0 +1,48 @@
+<div class=lobby-wrapper>
+    <div class="row grey-text">
+        <button id=button_configurator class="btn purple darken-2 s12 right">返回</button>
+        <b><img src=./assets/icons/info.png style=height:24px;vertical-align:middle;padding-bottom:4px>
+            组建队伍，或<span class="blue-text darken-1">加入</span>现有队伍，开始冒险。作为队长，你可以<span class="purple-text darken-1">雇佣</span>一名佣兵，协助你的冒险。
+        </b><br>
+        <div style=padding-top:6px>
+            <span id=label_user_number class=white-text style=padding:0></span>
+        </div>
+    </div>
+    <div class=row>
+        <div class="col s9">
+            <div class=row>
+                <div class="col s2 center" style=padding:0>
+                    <span id=unit_info class="light-green lighten-1"></span><br>
+                    <div id=unit_icon class=selection-icon-big style=margin-top:4px></div><br>
+                    <span id=unit_booty class=white-text style=padding:0></span>
+                </div>
+                <div>
+                    <div style=margin-bottom:8px class=center-align>
+                        <button id=button_dungeons class="btn-small orange darken-3" style=margin-right:4px;padding:12px;line-height:0;max-height:20px>地下城</button>
+                        <button id=button_parties class="btn-small blue darken-2" style=margin-left:4px;padding:12px;line-height:0;max-height:20px>队伍（0）</button>
+                    </div>
+                    <div id=rooms_container class="rooms-container col s10"></div>
+                    <div id=dungeons_container class="dungeons-container col s10"></div>
+                </div>
+            </div>
+        </div>
+        <div id=lobby_chat class="col s3 center-align" style=margin-top:-14px>
+            <b><span class=orange-text>聊天</span></b>
+            <div id=chat_messages class="lobby-chat white-text scrollbar-y left-align"></div>
+            <div class="input-field lobby-chat-input left-align">
+                <input id=chat_input type=text>
+            </div>
+        </div>
+    </div>
+</div>
+<div id=popup_shadow class="popup-shadow hidden"></div>
+<div id=mercenaries_popup class="mercenaries-popup white-text hidden">
+    <div class="row grey-text">
+        <button id=button_close class="btn purple darken-2 s12 right">返回</button>
+        <b><img src=./assets/icons/info.png style=height:24px;vertical-align:middle;padding-bottom:4px>
+            雇佣一名佣兵。
+        </b>
+    </div>
+    <div id=mercenaries_container class="mercenaries-container scrollbar-y"></div>
+</div>
+<div id=item_description_popup class="item-description-popup grey-text text-lighten-4"></div>

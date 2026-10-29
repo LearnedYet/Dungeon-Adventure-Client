@@ -1,0 +1,121 @@
+<div class=game-wrapper>
+    <div class=row style=min-height:150px>
+        <div id=flow_controls_container class="col s4 center-align">
+            <div class=row>
+                <div class=col style=margin-top:0>
+                    <button id=button_abandon class="btn-small red darken-3">放弃</button>
+                    <button id=button_leave class="btn-small green darken-2">撤离</button>
+                </div>
+                <div class=row>
+                    <button id=button_wait class="btn-small green darken-2 col s2" style=margin-right:10px>等待</button>
+                    <button id=button_next_phase class="btn-small blue darken-2">准备</button>
+                    <button id=button_next_battle class="btn-small darken-4 yellow">下一层</button>
+                    <button id=button_skip class="btn-small purple darken-2">结束回合</button>
+                </div>
+            </div>
+            <div class=left-align style=padding:0;margin-top:-32px;height:12px;white-space:nowrap>
+                <span id=label_users_in_game class="white-text left">玩家</span>
+            </div><br>
+            <div class="col s8" style=padding:0>
+                <div class=left-align style=padding:0;height:12px>
+                    <span id=label_dungeon_name class="white-text purple darken-2">地下城</span>
+                </div><br>
+                <div class=left-align style=padding:0;height:12px>
+                    <span class="white-text grey darken-2" style=height:100px>队伍战利品：
+                        <img src=./assets/icons/coin.png style=height:20px;vertical-align:middle;padding-bottom:4px><span id=label_loot_coins>100</span>
+                        <img src=./assets/icons/ruby.png style=height:20px;vertical-align:middle;padding-bottom:4px><span id=label_loot_rubies>100</span>
+                    </span>
+                </div><br>
+                <div class=left-align style=padding:0;height:12px>
+                    <span id=label_dungeon_state class="white-text grey darken-2">地下城层数：7</span><br>
+                </div><br>
+                <div class=left-align style=padding:0;height:12px;width:200%>
+                    <span id=label_game_status class="white-text green darken-2"></span>
+                </div>
+            </div>
+            <div class="col s4 left-align" style=padding:0>
+                <span id=label_health class=white-text style=font-size:11px;width:100px></span>
+                <div id=health_bar class="red darken-4" style=width:0;height:14px;margin-top:-16px;border-radius:2px></div>
+
+                <span id=label_stamina class=white-text style=font-size:11px;width:100px></span>
+                <div id=stamina_bar class="green darken-2" style=width:0;height:14px;margin-top:-16px;border-radius:2px>
+                </div>
+
+                <span id=label_mana class=white-text style=font-size:11px;width:100px></span>
+                <div id=mana_bar class="blue darken-2" style=width:0;height:14px;margin-top:-16px;border-radius:2px></div>
+
+                <div style=width:200%>
+                    <span id=label_stress class=text-lighten-1 style=font-size:11px;white-space:nowrap></span>
+                    <span id=label_action_points class="orange-text text-lighten-1" style=font-size:11px;white-space:nowrap></span>
+                </div>
+
+                <div id=effect_icons style=width:300px;padding-top:2px;display:flex;flex-direction:row>
+                    <img id=icon_stressed_sm height=12px src=./assets/icons/stressed.png>
+                    <img id=icon_bleeding height=12px src=./assets/icons/blood-drop.png>
+                    <img id=icon_poison height=12px src=./assets/icons/poison-drop.png>
+                    <img id=icon_acid height=12px src=./assets/icons/acid.png>
+                    <img id=icon_cold height=12px src=./assets/icons/cold.png>
+                    <img id=icon_lighting height=12px src=./assets/icons/lighting.png>
+                    <img id=icon_fire height=12px src=./assets/icons/fire.png>
+                    <img id=icon_health height=12px src=./assets/icons/health.png>
+                    <img id=icon_stamina height=12px src=./assets/icons/stamina.png>
+                    <img id=icon_mana height=12px src=./assets/icons/mana.png>
+                    <img id=icon_drain height=12px src=./assets/icons/drain.png>
+                </div>
+            </div>
+        </div>
+        <div class="col s8" style=height:72px;padding:0>
+            <b><span id=label_game_phase_info class=grey-text style=font-size:13px></span></b>
+        </div>
+        <div class="col s8">
+            <span class=orange-text><b>行动顺序</b></span><br>
+            <div id=units_queue_container class=items-container-y></div>
+        </div>
+    </div>
+    <div class=row style=margin-top:16px>
+        <div class="col center-align" style=margin-top:0>
+            <span class=orange-text><b>战斗日志</b></span>
+            <div id=game_log class="game-log grey-text text-lighten-1 scrollbar-y left-align" style=font-size:10px></div>
+        </div>
+        <div class=col>
+            <div id=battlefield_container class="items-container-y left" style=margin-top:-26px></div>
+        </div>
+        <div id=game_chat class="col center-align" style=margin-top:-40px>
+            <span class=orange-text><b>聊天</b></span>
+            <div id=chat_messages class="game-chat grey-text text-lighten-4 scrollbar-y left-align"></div>
+            <div class="input-field game-chat-input left-align">
+                <input id=chat_input type=text>
+            </div>
+        </div>
+    </div>
+    <div id=unit_items_container class="items-container-x scrollbar-x" style="margin:-18px -3px -3px">
+    </div>
+</div>
+<div id=item_description_popup class="item-description-popup grey-text text-lighten-4"></div>
+<div id=dungeon_loot_popup class="dungeon-loot-popup darken-4 hidden">
+    <div class=row>
+        <div class="col s4">
+            <img src=./assets/icons/treasure.png style=height:74px>
+        </div>
+        <div class="col s8">
+            <b><span id=label_description class=orange-text>地下城战利品</span></b><br>
+            <div id=label_booty class=white-text style=padding-top:6px> 100</div>
+        </div>
+    </div>
+</div>
+<div id=popup_shadow class="popup-shadow hidden"></div>
+<div id=leave_dungeon_popup class="leave-dungeon-popup darken-4 hidden">
+    <div class=row>
+        <div class="col s4" style=padding-top:6px>
+            <img src=./assets/icons/dungeon-01.png style=height:76px>
+        </div>
+        <div class="col s8" style=padding:0>
+            <b><span id=label_description class=orange-text style=padding-left:0>要放弃地下城吗？</span></b><br>
+            <div id=label_booty class=white-text style=padding-top:6px>你将无法获得战利品！</div>
+        </div>
+        <div class="col s12 center" style=padding-top:10px>
+            <button id=button_yes class="btn-small green" style=margin-right:2px>是</button>
+            <button id=button_no class="btn-small red" style=margin-left:2px>否</button><br>
+        </div>
+    </div>
+</div>
