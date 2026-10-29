@@ -43,24 +43,24 @@ export function rangeCombatTip(clazz: string): GameTipKey {
 
 export const GAME_TIPS: { [key in GameTipKey]?: string } = {
     [GameTipKey.MAIN_HUB]: `
-        <span style="margin-left: 8px;">Your character sheet is on the left. Hover over or right-click for more information.</span><br>
+        <span style="margin-left: 8px;">左侧是角色面板。悬停或右键点击可查看详细信息。</span><br>
         <img src="./assets/icons/armory-gear.png" style="vertical-align: middle; padding-bottom: 4px; width: 22px; margin-top: 6px;" />
-        You can buy items in the Shop on the right.<br>
+        你可以在右侧商店购买物品。<br>
         <img src="./assets/icons/backpack.png" style="height:24px; vertical-align: middle; padding-bottom: 4px;" />
-        You can manage your gear in the Inventory below.<br>
+        你可以在下方背包中管理装备。<br>
         <img src="./assets/icons/warning.png" style="height:24px; vertical-align: middle; padding-bottom: 4px;" />
-        Open the Quests menu from the top and take your active assignment.<div>
-        <span style="margin-left: 8px;">Read the game rules by clicking the Game Rules button at the top of the screen.</span>`,
+        打开顶部的任务菜单，领取当前任务。<div>
+        <span style="margin-left: 8px;">点击屏幕顶部的“游戏规则”按钮，阅读游戏规则。</span>`,
     [GameTipKey.COMBAT_PHASE]: `
-        Welcome, adventurer! This is your learning mission.<br>
-        You must destroy all the training dummies.<br>
-        Follow the instructions in the combat phase notes above.`,
+        欢迎你，冒险者！这是你的教学任务。<br>
+        你需要摧毁所有训练假人。<br>
+        请按照上方战斗阶段说明中的指引操作。`,
     [GameTipKey.START_TRAINING_QUEST]: `
-        Now you can proceed to your training.<br>
-        Click the Training button in the upper right corner.`,
+        现在可以开始训练了。<br>
+        点击右上角的“训练”按钮。`,
     [GameTipKey.RESOLVE_TRAINING_QUEST]: `
         <img src="./assets/icons/warning.png" style="height:24px; vertical-align: middle; padding-bottom: 4px;" />
-        Open the Quests menu from the top to complete your training quest.`,
+        打开顶部的任务菜单，交付训练任务。`,
     [GameTipKey.REPLENISH_SUPPLIES]: `
         <img src="./assets/icons/health-potion-01.png" style="vertical-align: middle; height: 32px; padding-bottom: 4px;" />
         <img src="./assets/icons/stamina-potion-01.png" style="vertical-align: middle; height: 32px; padding-bottom: 4px;" />
@@ -77,12 +77,12 @@ export const GAME_TIPS: { [key in GameTipKey]?: string } = {
         <img src="./assets/icons/boots-01.png" style="vertical-align: middle; height: 32px; padding-bottom: 4px;" />
         <img src="./assets/icons/gloves-01.png" style="vertical-align: middle; height: 32px; padding-bottom: 4px;" />
         <br>
-        Don't forget to restock your potions, ammunition and provision.<br>
-        You might need better gear before heading down into the Dungeons.`,
+        别忘了补充药水、弹药和食物。<br>
+        进入地下城之前，你可能需要更好的装备。`,
     [GameTipKey.MANAGE_INVENTORY]: `
         <img src="./assets/icons/backpack.png" style="height:24px; vertical-align: middle; padding-bottom: 4px;" />
-        Don't forget to equip your weapon and armor into the corresponding slots.<br>
-        When such icon 
+        别忘了把武器和护甲装备到对应栏位。<br>
+        当物品旁显示以下图标时
         <img src="./assets/icons/slot-weapon.png"
                 style="vertical-align: middle; padding-bottom: 4px; width: 16px;">
             <img src="./assets/icons/slot-head.png"
@@ -95,116 +95,116 @@ export const GAME_TIPS: { [key in GameTipKey]?: string } = {
                 style="vertical-align: middle; padding-bottom: 4px; width: 16px;">
             <img src="./assets/icons/slot-neck.png"
                 style="vertical-align: middle; padding-bottom: 4px; width: 16px;">
-        is displayed, it means the item is equipped.`,
+        ，表示该物品已经装备。`,
     [GameTipKey.CLOSE_COMBAT_WARRIOR]: `
         <img src="./assets/icons/sword-01.png" style="vertical-align: middle; height: 40px;">
-        Select your close combat weapon (<span class="orange-text" style="padding: 0;">it should glow orange</span>) to attack targets in the adjacent column.<br>
-        <span style="margin-left: 42px;">It must be equipped in the weapon <img src="./assets/icons/slot-weapon.png"
-            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> slot.</span><br>
+        选择近战武器（<span class="orange-text" style="padding: 0;">选中后应显示橙色光效</span>），攻击相邻列的目标。<br>
+        <span style="margin-left: 42px;">它必须装备在武器栏位 <img src="./assets/icons/slot-weapon.png"
+            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> 中。</span><br>
         <img src="./assets/icons/close-range.png" style="vertical-align: middle; height: 32px; margin-top: 2px;">
-        You can reach any <span class="green-text" style="padding: 0;">green</span> square from any <span class="purple-text text-lighten-1" style="padding: 0;">purple</span> square.`,
+        你可以攻击任意<span class="green-text" style="padding: 0;">绿色</span>格子，出发位置可以是任意<span class="purple-text text-lighten-1" style="padding: 0;">紫色</span>格子。`,
     [GameTipKey.CLOSE_COMBAT_BARBARIAN]: `
         <img src="./assets/icons/axe-01.png" style="vertical-align: middle; height: 40px;">
-        Select your close combat weapon (<span class="orange-text" style="padding: 0;">it should glow orange</span>) to attack targets in the adjacent column.<br>
-        <span style="margin-left: 42px;">It must be equipped in the weapon <img src="./assets/icons/slot-weapon-2.png"
-            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> slot.</span><br>
+        选择近战武器（<span class="orange-text" style="padding: 0;">选中后应显示橙色光效</span>），攻击相邻列的目标。<br>
+        <span style="margin-left: 42px;">它必须装备在武器栏位 <img src="./assets/icons/slot-weapon-2.png"
+            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> 中。</span><br>
         <img src="./assets/icons/close-range.png" style="vertical-align: middle; height: 32px; margin-top: 2px;">
-        You can reach any <span class="green-text" style="padding: 0;">green</span> square from any <span class="purple-text text-lighten-1" style="padding: 0;">purple</span> square.`,
+        你可以攻击任意<span class="green-text" style="padding: 0;">绿色</span>格子，出发位置可以是任意<span class="purple-text text-lighten-1" style="padding: 0;">紫色</span>格子。`,
     [GameTipKey.CLOSE_COMBAT_MAGE]: `
         <img src="./assets/icons/plasma-touch-01.png" style="vertical-align: middle; height: 40px;">
-        Select your close combat magic (<span class="orange-text" style="padding: 0;">it should glow orange</span>) to attack targets in the adjacent column.<br>
+        选择近战魔法（<span class="orange-text" style="padding: 0;">选中后应显示橙色光效</span>），攻击相邻列的目标。<br>
         <img src="./assets/icons/close-range.png" style="vertical-align: middle; height: 32px; margin-top: 2px;">
-        You can reach any <span class="green-text" style="padding: 0;">green</span> square from any <span class="purple-text text-lighten-1" style="padding: 0;">purple</span> square.`,
+        你可以攻击任意<span class="green-text" style="padding: 0;">绿色</span>格子，出发位置可以是任意<span class="purple-text text-lighten-1" style="padding: 0;">紫色</span>格子。`,
     [GameTipKey.CLOSE_COMBAT_RANGER]: `
         <img src="./assets/icons/dagger-01.png" style="vertical-align: middle; height: 40px;">
-        Select your close combat weapon (<span class="orange-text" style="padding: 0;">it should glow orange</span>) to attack targets in the adjacent column.<br>
-        <span style="margin-left: 42px;">It must be equipped in the weapon <img src="./assets/icons/slot-weapon.png"
-            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> slot.</span><br>
+        选择近战武器（<span class="orange-text" style="padding: 0;">选中后应显示橙色光效</span>），攻击相邻列的目标。<br>
+        <span style="margin-left: 42px;">它必须装备在武器栏位 <img src="./assets/icons/slot-weapon.png"
+            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> 中。</span><br>
         <img src="./assets/icons/close-range.png" style="vertical-align: middle; height: 32px; margin-top: 2px;">
-        You can reach any <span class="green-text" style="padding: 0;">green</span> square from any <span class="purple-text text-lighten-1" style="padding: 0;">purple</span> square.`,
+        你可以攻击任意<span class="green-text" style="padding: 0;">绿色</span>格子，出发位置可以是任意<span class="purple-text text-lighten-1" style="padding: 0;">紫色</span>格子。`,
     [GameTipKey.RANGE_COMBAT_MAGE]: `
         <img src="./assets/icons/sorcerer-staff-01.png" style="vertical-align: middle; height: 40px;">
-        Select your long range weapon (<span class="orange-text" style="padding: 0;">it should glow orange</span>) to attack targets behind the adjacent column.<br>
-        <span style="margin-left: 42px;">It must be equipped in the weapon <img src="./assets/icons/slot-weapon-2.png"
-            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> slot.</span><br>
+        选择远程武器（<span class="orange-text" style="padding: 0;">选中后应显示橙色光效</span>），攻击相邻列之后的目标。<br>
+        <span style="margin-left: 42px;">它必须装备在武器栏位 <img src="./assets/icons/slot-weapon-2.png"
+            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> 中。</span><br>
         <img src="./assets/icons/fire-charge-01.png" style="vertical-align: middle; height: 32px; margin-top: 2px; margin-left: 8px;">
-        The weapon ammunition must be equipped in the ammo <img src="./assets/icons/slot-ammo.png"
-                        style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> slot<br>
+        武器弹药必须装备在弹药栏位 <img src="./assets/icons/slot-ammo.png"
+                        style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> 中。<br>
         <img src="./assets/icons/long-range.png" style="vertical-align: middle; height: 32px; margin-top: 2px;">
-        You can reach any <span class="green-text" style="padding: 0;">green</span> square from any <span class="purple-text text-lighten-1" style="padding: 0;">purple</span> square.`,
+        你可以攻击任意<span class="green-text" style="padding: 0;">绿色</span>格子，出发位置可以是任意<span class="purple-text text-lighten-1" style="padding: 0;">紫色</span>格子。`,
     [GameTipKey.RANGE_COMBAT_RANGER]: `
         <img src="./assets/icons/bow-01.png" style="vertical-align: middle; height: 40px;">
-        Select your long range weapon (<span class="orange-text" style="padding: 0;">it should glow orange</span>) to attack targets behind the adjacent column.<br>
-        <span style="margin-left: 42px;">It must be equipped in the weapon <img src="./assets/icons/slot-weapon-2.png"
-            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> slot.</span><br>
+        选择远程武器（<span class="orange-text" style="padding: 0;">选中后应显示橙色光效</span>），攻击相邻列之后的目标。<br>
+        <span style="margin-left: 42px;">它必须装备在武器栏位 <img src="./assets/icons/slot-weapon-2.png"
+            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> 中。</span><br>
         <img src="./assets/icons/arrow-01.png" style="vertical-align: middle; height: 32px; margin-top: 2px; margin-left: 8px;">
-        The weapon ammunition must be equipped in the ammo <img src="./assets/icons/slot-ammo.png"
-                        style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> slot<br>
+        武器弹药必须装备在弹药栏位 <img src="./assets/icons/slot-ammo.png"
+                        style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> 中。<br>
         <img src="./assets/icons/long-range.png" style="vertical-align: middle; height: 32px; margin-top: 2px;">
-        You can reach any <span class="green-text" style="padding: 0;">green</span> square from any <span class="purple-text text-lighten-1" style="padding: 0;">purple</span> square.`,
+        你可以攻击任意<span class="green-text" style="padding: 0;">绿色</span>格子，出发位置可以是任意<span class="purple-text text-lighten-1" style="padding: 0;">紫色</span>格子。`,
     [GameTipKey.RANGE_COMBAT_WARRIOR]: `
-        Since you don't have a ranged weapon, you'll need<br>to move your character closer to the distant targets.`,
+        由于你没有远程武器，需要<br>先让角色靠近远处的目标。`,
     [GameTipKey.RANGE_COMBAT_BARBARIAN]: `
-        Since you don't have a ranged weapon, you'll need<br>to move your character closer to the distant targets.`,
+        由于你没有远程武器，需要<br>先让角色靠近远处的目标。`,
     [GameTipKey.LOW_HEALTH]: `
-        <span style="margin-left: 8px;">Your health is low.</span><br>
+        <span style="margin-left: 8px;">你的生命值较低。</span><br>
         <img src="./assets/icons/health-potion-01.png" style="height:24px; vertical-align: middle; height: 32px;">
-        Use health potions to regenerate health during combat.`,
+        战斗中可以使用生命药水恢复生命值。`,
     [GameTipKey.LOW_STAMINA]: `
-        <span style="margin-left: 8px;">Your stamina is low and you may not be able to use your weapon.</span><br>
+        <span style="margin-left: 8px;">你的体力较低，可能无法使用武器。</span><br>
         <img src="./assets/icons/stamina-potion-01.png" style="vertical-align: middle; height: 32px;">
-        Use stamina potions to regenerate stamina during combat.`,
+        战斗中可以使用体力药水恢复体力。`,
     [GameTipKey.LOW_MANA]: `
-        <span style="margin-left: 8px;">Your mana is low and you may not be able to use your magic and magic weapons.</span><br>
+        <span style="margin-left: 8px;">你的法力较低，可能无法使用魔法和魔法武器。</span><br>
         <img src="./assets/icons/mana-potion-01.png" style="vertical-align: middle; height: 32px;">
-        Use mana potions to regenerate mana during combat.`,
+        战斗中可以使用法力药水恢复法力。`,
     [GameTipKey.NO_STAMINA]: `
         <img src="./assets/icons/tired.png" style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">
-        Your stamina is completely drained. Any damage you take will be critical.`,
+        你的体力已经耗尽。受到的任何伤害都会暴击。`,
     [GameTipKey.ARMOR_PROTECTION]: `
-        All damage absorbed by your armor or shild reduces the character's stamina.`,
+        护甲或盾牌吸收的所有伤害都会消耗角色体力。`,
     [GameTipKey.STUNNED]: `
         <img src="./assets/icons/dizzy.png" style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">
-        Your character is stunned. Any damage you take will be critical.`,
+        你的角色已眩晕。受到的任何伤害都会暴击。`,
     [GameTipKey.BROKEN_GEAR]: `
         <img src="./assets/icons/broken.png" style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">
-        Your gear is broken and cannot be used.<br>
-        You can repair it when you return from the dungeon.`,
+        你的装备已损坏，无法使用。<br>
+        从地下城返回后可以修理。`,
     [GameTipKey.STRESSED]: `
         <img src="./assets/icons/stressed.png" style="vertical-align: middle; padding-bottom: 4px; width: 16px; margin: 4px; margin-left: 8px;">
-        Your character is stressed. Bad things can happen.<br>
+        你的角色压力过高，可能发生不利事件。<br>
        <img src="./assets/icons/stress-potion-01.png" style="vertical-align: middle; padding-bottom: 4px; width: 32px; margin: 4px;">
-        You can use a calming brew to reduce your stress.`,
+        可以使用安神药剂降低压力。`,
     [GameTipKey.BLEADING]: `
         <img src="./assets/icons/blood-drop.png" style="vertical-align: middle; padding-bottom: 4px; width: 16px; margin: 4px; margin-left: 8px;">
-        Your character is bleeding.<br>
+        你的角色正在流血。<br>
        <img src="./assets/icons/bandage-01.png" style="vertical-align: middle; padding-bottom: 4px; width: 32px; margin: 4px;">
-        You can use a bandage to stop bleeding during combat.`,
+        战斗中可以使用绷带止血。`,
     [GameTipKey.POISONED]: `
         <img src="./assets/icons/poison-drop.png" style="vertical-align: middle; padding-bottom: 4px; width: 16px; margin: 4px; margin-left: 8px;">
-        Your character is poisoned.<br>
+        你的角色已中毒。<br>
        <img src="./assets/icons/antidote-potion-01.png" style="vertical-align: middle; padding-bottom: 4px; width: 32px; margin: 4px;">
-        You can use an antidote to heal yourself during combat.`,
+        战斗中可以使用解毒药治疗中毒。`,
     [GameTipKey.CONSUME_PROVISION_HEALTH]: `
         <img src="./assets/icons/provision-ham-01.png" style="vertical-align: middle; height: 32px;">
-        You can consume a slab of ham to restore your health during the resting phase.`,
+        休息阶段可以吃一块火腿恢复生命值。`,
     [GameTipKey.CONSUME_PROVISION_MANA]: `
         <img src="./assets/icons/provision-wine-01.png" style="vertical-align: middle; height: 32px;">
-        You can consume a bottle of wine to restore your mana during the resting phase.`,
+        休息阶段可以喝一瓶葡萄酒恢复法力。`,
     [GameTipKey.CONSUME_PROVISION_STRESS]: `
         <img src="./assets/icons/provision-beer-01.png" style="vertical-align: middle; height: 32px;">
-        You can consume a glass of beer to reduce your stress during the resting phase.`,
+        休息阶段可以喝一杯啤酒降低压力。`,
     [GameTipKey.MERCENARY]: `
         <img src="./assets/icons/villager-01.png" style="vertical-align: middle; height: 32px;">
-        You can hire a mercenary to help you on your journey.`,
+        你可以雇用一名佣兵，协助冒险。`,
     [GameTipKey.LOBBY]: `
-        From here you can enter dungeons as a party leader.<br>
-        You can join other players' parties in the Parties tab.`,
+        你可以在这里以队长身份进入地下城。<br>
+        在“队伍”选项卡中可以加入其他玩家的队伍。`,
     [GameTipKey.WAIT_SKIP]: `
-        By clicking the <span class="green-text text-lighten-1" style="padding: 0;">WAIT</span> button, you will be at the end of the turn order.<br>
-        Clicking the <span class="purple-text" style="padding: 0;">END TURN</span> button will skip your turn entirely.`,
+        点击<span class="green-text text-lighten-1" style="padding: 0;">等待</span>按钮，会将你的行动移至本轮末尾。<br>
+        点击<span class="purple-text" style="padding: 0;">结束回合</span>按钮，会直接跳过本次行动。`,
     [GameTipKey.DEFEATED]: `
-        <img src="./assets/icons/death.png" style="vertical-align: middle; height: 24px;">The hero has been defeated. But death is only a new beginning.`,
+        <img src="./assets/icons/death.png" style="vertical-align: middle; height: 24px;">英雄已被击败，但死亡也是新的开始。`,
     [GameTipKey.LEVEL_UP]: `
-        Your character is ready to gain a new level.<br>Click the Level Up button and assign you attribute points.`,
+        你的角色可以升级了。<br>点击“升级”按钮，分配属性点。`,
 };

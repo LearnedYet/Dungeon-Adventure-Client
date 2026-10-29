@@ -191,7 +191,7 @@ export default class SpotCell extends Component {
             return;
         }
         if (this._icon.enabled) {
-            this._descriptionPopup.data = { hint: 'Click to move here' };
+            this._descriptionPopup.data = { hint: '点击移动到此处' };
             this._descriptionPopup.show({ stickTo: this.getBoundingRect(), timeoutMs: 500 });
             return;
         }
@@ -430,16 +430,16 @@ export default class SpotCell extends Component {
         const chosenItem = this.unitItems.chosenItem;
         const hintRequirements = (actor: GameUnit, useCost?: UnitBaseAttributes) => {
             if (actor.state.stamina < (useCost?.stamina ?? 0)) {
-                this._hint = '!Not enough stamina';
+                this._hint = '!体力不足';
             } else if (actor.state.mana < (useCost?.mana ?? 0)) {
-                this._hint = '!Not enough mana';
+                this._hint = '!法力不足';
             } else if (actor.state.actionPoints < (useCost?.actionPoints ?? 0)) {
-                this._hint = '!Not enough action points';
+                this._hint = '!行动点不足';
             }
         }
         if (this.unitItems.isCurrentUnitTurn() && gamePhase === GamePhase.TAKE_ACTION || gamePhase === GamePhase.SPOT_COMPLETE) {
             if (!chosenItem) {
-                this._hint = '!No item selected';
+                this._hint = '!尚未选择物品';
             } else {
                 const actor = this.unitItems.playersUnit();
                 if (!actor || actor.isDead) return;
@@ -451,24 +451,24 @@ export default class SpotCell extends Component {
                 reachable = this.canReach(actor.position, this, range);
                 if (damage && actor.faction !== this._unit.faction) {
                     chance = this.actionService.attackChance(damage, actor, this._unit);
-                    this._hint = !reachable ? '!Can\'t reach' : 'Click to attack';
+                    this._hint = !reachable ? '!超出范围' : '点击攻击';
                     if (chosenItem.type === ItemType.WEAPON) {
                         const weapon = chosenItem as Weapon;
                         if (!weapon.equipped) {
-                            this._hint = '!Not equipped';
+                            this._hint = '!尚未装备';
                         } else if (weapon.ammunitionKind && !actor.inventory.ammunition?.some(a => a.equipped && a.kind === weapon.ammunitionKind)) {
-                            this._hint = '!No ammunition';
+                            this._hint = '!没有弹药';
                         }
                     }
                     hintRequirements(actor, useCost);
                 }
                 if (chosenItem.type !== ItemType.WEAPON && modification && actor.faction === this._unit.faction) {
                     chance = this.actionService.modificationChance(modification, actor);
-                    this._hint = !reachable ? '!Can\'t reach' : 'Click to use';
+                    this._hint = !reachable ? '!超出范围' : '点击使用';
                     hintRequirements(actor, useCost);
                 }
                 if (recovery && gamePhase === GamePhase.SPOT_COMPLETE) {
-                    this._hint = 'Click to consume';
+                    this._hint = '点击消耗';
                 }
             }
         }
@@ -653,7 +653,7 @@ export default class SpotCell extends Component {
             }
             this.shake();
             this.hitHpLabel.show();
-            this.hitHpLabel.value = withDrain && !itemPhysicalDamage ? '' : `${actualPhysicalDamage}HP`;
+            this.hitHpLabel.value = withDrain && !itemPhysicalDamage ? '' : `${actualPhysicalDamage}伤害`;
             if (this.actionService.hasCriticalMissDamage(result, targetUid)) {
                 this.missCriticalLabel.show();
             } else if (this.actionService.hasCriticalDamage(result, targetUid)) {
@@ -704,7 +704,7 @@ export default class SpotCell extends Component {
 
     public updateWithExperience(experience: number): void {
         this.onActionResultIcon();
-        this.expLabel.value = `+${experience}XP`;
+        this.expLabel.value = `+${experience}经验`;
         this.expLabel.show();
         this._iconExperience.show();
     }

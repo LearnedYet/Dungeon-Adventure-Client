@@ -12,16 +12,16 @@
     <div id="settings_popup" class="settings-popup no-select hidden">
         <div class="row">
             <h6 class="center-align amber-text">
-                Settings
+                设置
             </h6>
             <div class="col s5">
-                <label class="grey-text text-lighten-1" style="padding-right: 10px;">Sound Effects Volume</label>
+                <label class="grey-text text-lighten-1" style="padding-right: 10px;">音效音量</label>
             </div>
             <div class="col s7" style="margin-top: -6px;">
                 <input type="range" min="0" max="100" value="1" class="h-slider" id="slider_sound_volume">
             </div>
             <div class="col s5">
-                <label class="grey-text text-lighten-1" style="padding-right: 10px;">Ambience Volume</label>
+                <label class="grey-text text-lighten-1" style="padding-right: 10px;">环境音量</label>
             </div>
             <div class="col s7" style="margin-top: -6px;">
                 <input type="range" min="0" max="100" value="1" class="h-slider" id="slider_music_volume">
@@ -30,25 +30,22 @@
                 <label class="grey-text text-lighten-1">
                     <input id="checkbox_sound" type="checkbox" />
                     <span style="padding-left: 24px; font-size: 12px;"><img src="./assets/icons/sound.png"
-                            style="vertical-align: middle; padding-bottom: 6px; height: 22px;" /> <b>On/Off
-                            Sound</b></span>
+                            style="vertical-align: middle; padding-bottom: 6px; height: 22px;" /> <b>开启/关闭声音</b></span>
                 </label><br>
                 <label class="grey-text text-lighten-1">
                     <input id="checkbox_tips" type="checkbox" />
                     <span style="padding-left: 24px; font-size: 12px;"><img src="./assets/icons/info.png"
-                            style="vertical-align: middle; padding-bottom: 6px; height: 22px;" /> <b>Show
-                            Tips</b></span>
+                            style="vertical-align: middle; padding-bottom: 6px; height: 22px;" /> <b>显示提示</b></span>
                 </label><br>
                 <label class="grey-text text-lighten-1">
                     <input id="checkbox_info" type="checkbox" />
                     <span style="padding-left: 24px; font-size: 12px;"><img src="./assets/icons/info.png"
-                            style="vertical-align: middle; padding-bottom: 6px; height: 22px;" /> <b>Show Info on
-                            Hover</b></span>
+                            style="vertical-align: middle; padding-bottom: 6px; height: 22px;" /> <b>鼠标悬停时显示详情</b></span>
                 </label><br>
-                <label class="grey-text text-lighten-1">Info popup can be shown with a right-click.</label><br>
+                <label class="grey-text text-lighten-1">也可以右键点击查看详细信息。</label><br>
             </div>
             <div class="col s12 center" style="padding-top: 10px;">
-                <button id="button_ok" class="btn-small blue">Close</button>
+                <button id="button_ok" class="btn-small blue">关闭</button>
             </div>
         </div>
     </div>
@@ -56,11 +53,11 @@
         <b>
             <div class="center-align">
                 <span class="amber-text"><img src="./assets/icons/info.png"
-                        style="height:24px; vertical-align: middle; padding-bottom: 4px;" /> Tips</span>
+                        style="height:24px; vertical-align: middle; padding-bottom: 4px;" /> 提示</span>
             </div>
             <div id="message_label" class="row grey-text text-lighten-3" style="margin: 0;"> </div>
             <div class="center" style="margin-top: 6px; margin-bottom: 2px;">
-                <button id="button_ok" class="btn-small blue" style="height: 24px; line-height: 0;">ok</button><br>
+                <button id="button_ok" class="btn-small blue" style="height: 24px; line-height: 0;">确定</button><br>
             </div>
         </b>
     </div>
@@ -68,99 +65,80 @@
         <div class="row">
             <div class="col s12 white-text scrollbar-y" style="max-height: 500px;">
                 <h6 class="center-align amber-text">
-                    Game Rules
+                    游戏规则
                 </h6>
 
                 <div class="center-align">
-                    <span class="amber-text"><b>Character base attributes</b></span>
+                    <span class="amber-text"><b>角色基础属性</b></span>
                 </div>
                 <div style="padding: 4px;">
-                    <span class="red darken-2">Health</span> • The hit points a unit can take before dying.
+                    <span class="red darken-2">生命值</span> • 角色死亡前能够承受的生命损失。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="green darken-2">Stamina</span> • A weapon may require stamina points to perform an
-                    action
+                    <span class="green darken-2">体力</span> • 使用武器可能需要消耗体力。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="blue darken-2">Mana</span> • A weapon or spell may require mana points to perform an
-                    action.
+                    <span class="blue darken-2">法力</span> • 使用武器或法术可能需要消耗法力。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="grey darken-2">Stress</span> • Accumulative, reduces the chance to perform an action,
-                    increases the chance to retreat, and the critical miss chance.
+                    <span class="grey darken-2">压力</span> • 压力会累积，降低行动成功率，并提高退缩和严重失误的概率。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="orange darken-2">Action Points</span> • A weapon, spell, or disposable item may require
-                    action points to perform an action.
+                    <span class="orange darken-2">行动点</span> • 使用武器、法术或一次性道具可能需要消耗行动点。
                 </div>
                 <div class="center-align">
-                    <span class="amber-text"><b>Character attributes</b></span>
+                    <span class="amber-text"><b>角色属性</b></span>
                 </div>
                 <div style="padding: 4px;">
-                    <span class="purple darken-2">Strength</span> • Enhances stabbing, cutting, crushing, and bleeding
-                    damage.
+                    <span class="purple darken-2">力量</span> • 增强穿刺、斩击、钝击和流血伤害。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="purple darken-2">Physique</span> • Affects stun chance. For every 10 points, adds 1
-                    point to all physical resistances.
+                    <span class="purple darken-2">体质</span> • 影响眩晕概率；每增加 10 点，所有物理抗性增加 1 点。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="purple darken-2">Agility</span> • Affects attack / dodge chance.
+                    <span class="purple darken-2">敏捷</span> • 影响命中和闪避概率。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="purple darken-2">Endurance</span> • Affects stamina recovery.
+                    <span class="purple darken-2">耐力</span> • 影响体力恢复。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="purple darken-2">Intelligence</span> • Enhances fire, cold, lightning, acid,
-                    exhaustion, manaDrain, fear, curse, and madness damage.
+                    <span class="purple darken-2">智力</span> • 增强火焰、寒冷、闪电、酸蚀、疲劳、法力汲取、恐惧、诅咒和疯狂伤害。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="purple darken-2">Initiative</span> • Affects turn order. For every 10 points, adds 1
-                    action point.
+                    <span class="purple darken-2">先攻</span> • 影响行动顺序；每增加 10 点，行动点增加 1 点。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="purple darken-2">Luck</span> • Affects critical chance.
+                    <span class="purple darken-2">幸运</span> • 影响暴击概率。
                 </div>
 
                 <div class="center-align">
-                    <span class="amber-text"><b>Combat phases</b></span>
+                    <span class="amber-text"><b>战斗阶段</b></span>
                 </div>
 
                 <div style="padding: 4px;">
-                    <span class="blue darken-2">Prepare for the battle</span> • When the battle begins, you get time to
-                    equip/select your gear, and position your character.<br>
-                    No item can be used during this phase. Press the <span class="blue-text"><b>READY</b></span> button
-                    to begin the battle.
+                    <span class="blue darken-2">准备战斗</span> • 战斗开始前，你可以装备并选择物品，调整角色的位置。<br>
+                    本阶段不能使用物品。点击 <span class="blue-text"><b>准备</b></span> 按钮即可开始战斗。
                 </div>
 
                 <div style="padding: 4px;">
-                    <span class="orange darken-2">Battle</span> • The battle is turn-based. Turn order is determined by
-                    the character initiative. Each action consumes action points.<br>
-                    On your turn, you can move your character to any available position controlled by your party paying
-                    4 action points.<br>
-                    You can attack enemies or heal/buff yourself or an ally by selecting the appropriate item and
-                    clicking on the enemy or ally.<br>
-                    Such actions cost the action points specified in the item use cost.<br>
-                    There must be at least 4 action points remaining in the same round to take any further actions.<br>
-                    Provision items cannot be used during this phase. Equipping or unequipping gear costs no action
-                    points.<br>
-                    Press the <span class="green-text"><b>WAIT</b></span> button to move to the end of the turn
-                    order.<br>
-                    Press the <span class="purple-text darken-1"><b>END TURN</b></span> button to end your turn in the
-                    current round.
+                    <span class="orange darken-2">战斗</span> • 战斗采用回合制，行动顺序由角色的先攻决定，每次行动都会消耗行动点。<br>
+                    轮到你行动时，可以消耗 4 点行动点，将角色移动到己方区域的任意可用位置。<br>
+                    选中合适的物品，再点击敌人或队友，即可攻击敌人，或为自己及队友治疗、施加增益。<br>
+                    这些行动会消耗物品说明中标注的行动点。<br>
+                    本轮剩余行动点必须不少于 4，才能继续行动。<br>
+                    本阶段不能使用补给品；装备或卸下物品不消耗行动点。<br>
+                    点击 <span class="green-text"><b>等待</b></span> 按钮即可将自己的行动顺序移到最后。<br>
+                    点击 <span class="purple-text darken-1"><b>结束回合</b></span> 按钮即可结束本轮行动。
                 </div>
 
                 <div style="padding: 4px;">
-                    <span class="green darken-2">Resting</span> • Once the battle is over, no items can be used
-                    except provisions.<br>
-                    You can press <span class="green-text"><b>I'M DONE</b></span> to take your share and leave the
-                    dungeon.<br>
-                    Otherwise, press <span class="orange-text"><b>NEXT</b></span> to prepare for the next dungeon
-                    level.
+                    <span class="green darken-2">休息</span> • 战斗结束后，只能使用补给品。<br>
+                    你可以点击 <span class="green-text"><b>撤离</b></span> ，领取自己的一份战利品并离开地下城。<br>
+                    也可以点击 <span class="orange-text"><b>下一层</b></span> ，准备进入地下城下一层。
                 </div>
 
                 <div class="center-align">
-                    <span class="amber-text"><b>Items</b></span>
+                    <span class="amber-text"><b>物品</b></span>
                 </div>
 
                 <div class="row" style="margin-top: 8px; margin-bottom: 8px;">
@@ -170,13 +148,12 @@
                         <img src="./assets/icons/axe-01.png" style="vertical-align: middle; height: 32px;">
                     </div>
                     <div class="col">
-                        Close-range assault weapons.
-                        Takes up one <img src="./assets/icons/slot-weapon.png"
-                            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> or two <img
+                        近战武器：占用一个 <img src="./assets/icons/slot-weapon.png"
+                            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> 或两个 <img
                             src="./assets/icons/slot-weapon-2.png"
                             style="vertical-align: middle; padding-bottom: 4px; width: 16px;">
-                        weapon slots.<br>
-                        Must be equipped and selected before use in combat.
+                        武器槽位。<br>
+                        战斗中使用前，必须先装备并选中。
                     </div>
                 </div>
 
@@ -186,10 +163,10 @@
                         <img src="./assets/icons/shield-02.png" style="vertical-align: middle; height: 32px;">
                     </div>
                     <div class="col">
-                        Shields. Takes up one <img src="./assets/icons/slot-weapon.png"
-                            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> weapon slot.<br>
-                        All damage absorbed by the shield reduces the character's stamina.<br>
-                        Must be equipped to take effect.
+                        盾牌：占用一个 <img src="./assets/icons/slot-weapon.png"
+                            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> 武器槽位。<br>
+                        盾牌吸收的所有伤害都会消耗角色的体力。<br>
+                        装备后才会生效。
                     </div>
                 </div>
 
@@ -199,12 +176,11 @@
                         <img src="./assets/icons/sorcerer-staff-01.png" style="vertical-align: middle; height: 32px;">
                     </div>
                     <div class="col">
-                        Long-range assault weapons.
-                        Takes up two <img src="./assets/icons/slot-weapon-2.png"
+                        远程武器：占用两个 <img src="./assets/icons/slot-weapon-2.png"
                             style="vertical-align: middle; padding-bottom: 4px; width: 16px;">
-                        weapon slots.<br>
-                        Are not effective in close combat.<br>
-                        May require ammunition. Must be equipped and selected before use in combat.
+                        武器槽位。<br>
+                        不擅长近身作战。<br>
+                        可能需要弹药。战斗中使用前，必须先装备并选中。
                     </div>
                 </div>
 
@@ -214,10 +190,9 @@
                         <img src="./assets/icons/fire-charge-01.png" style="vertical-align: middle; height: 32px;">
                     </div>
                     <div class="col">
-                        Ammunition items. Each item matches the weapon by its kind.<br>
-                        Must be equipped in the ammo <img src="./assets/icons/slot-ammo.png"
-                            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> slot if the weapon
-                        requires ammunition of a specific kind.
+                        弹药：必须与武器所需的弹药类型匹配。<br>
+                        如果武器需要指定类型的弹药，必须将其装备到弹药 <img src="./assets/icons/slot-ammo.png"
+                            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> 槽位。
                     </div>
                 </div>
 
@@ -227,8 +202,8 @@
                         <img src="./assets/icons/fire-touch-01.png" style="vertical-align: middle; height: 32px;">
                     </div>
                     <div class="col s10">
-                        Close-range assault magic.<br>
-                        Must be selected before use in combat.
+                        近程攻击法术。<br>
+                        战斗中使用前，必须先选中。
                     </div>
                 </div>
 
@@ -239,8 +214,8 @@
                         <img src="./assets/icons/magic-exhaustion-01.png" style="vertical-align: middle; height: 32px;">
                     </div>
                     <div class="col s10">
-                        Long-range assault magic.<br>
-                        Must be selected before use in combat.
+                        远程攻击法术。<br>
+                        战斗中使用前，必须先选中。
                     </div>
                 </div>
 
@@ -250,9 +225,9 @@
                         <img src="./assets/icons/magic-shield-01.png" style="vertical-align: middle; height: 32px;">
                     </div>
                     <div class="col">
-                        Support magic. Modifies or restores ally attributes.
-                        <span class="grey-text">(ex.: health, stamina, agility, endurance, etc.)</span><br>
-                        Must be selected before use in combat.
+                        辅助法术：改变或恢复己方角色的属性。
+                        <span class="grey-text">（例如：生命值、体力、敏捷、耐力等）</span><br>
+                        战斗中使用前，必须先选中。
                     </div>
                 </div>
 
@@ -263,9 +238,9 @@
                         <img src="./assets/icons/mana-potion-01.png" style="vertical-align: middle; height: 32px;">
                     </div>
                     <div class="col">
-                        Recovery items. Modifies or restores ally attributes.
-                        <span class="grey-text">(ex.: health, stamina, agility, endurance, etc.)</span><br>
-                        Must be selected before use in combat.
+                        恢复道具：改变或恢复己方角色的属性。
+                        <span class="grey-text">（例如：生命值、体力、敏捷、耐力等）</span><br>
+                        战斗中使用前，必须先选中。
                     </div>
                 </div>
 
@@ -276,7 +251,7 @@
                         <img src="./assets/icons/gloves-03.png" style="vertical-align: middle; height: 32px;">
                     </div>
                     <div class="col">
-                        Armor. Takes up one of the following <img src="./assets/icons/slot-head.png"
+                        护甲：占用以下其中一个 <img src="./assets/icons/slot-head.png"
                             style="vertical-align: middle; padding-bottom: 4px; width: 16px;">
                         <img src="./assets/icons/slot-body.png"
                             style="vertical-align: middle; padding-bottom: 4px; width: 16px;">
@@ -285,9 +260,9 @@
                         <img src="./assets/icons/slot-leg.png"
                             style="vertical-align: middle; padding-bottom: 4px; width: 16px;">
                         <img src="./assets/icons/slot-neck.png"
-                            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> slots.<br>
-                        All damage absorbed by armor reduces the character's stamina.<br>
-                        Must be equipped to take effect.
+                            style="vertical-align: middle; padding-bottom: 4px; width: 16px;"> 槽位。<br>
+                        护甲吸收的所有伤害都会消耗角色的体力。<br>
+                        装备后才会生效。
                     </div>
                 </div>
 
@@ -297,152 +272,127 @@
                         <img src="./assets/icons/provision-wine-01.png" style="vertical-align: middle; height: 32px;">
                     </div>
                     <div class="col">
-                        Provision. Restores ally attributes.
-                        <span class="grey-text">(ex.: health, mana, etc.)</span><br>
-                        Can only be used in the "Resting Phase".
+                        补给品：恢复己方角色的属性。
+                        <span class="grey-text">（例如：生命值、法力等）</span><br>
+                        只能在休息阶段使用。
                     </div>
                 </div>
 
                 <div class="center-align">
-                    <span class="amber-text"><b>Item attributes</b></span>
+                    <span class="amber-text"><b>物品属性</b></span>
                 </div>
 
                 <div style="padding-top: 4px;">
-                    <span class="light-blue darken-1">Requirements</span> • What is required from
-                    your character to be able to equip or use an item.
-                    <span class="grey-text">(ex.: strength, agility, intelligence, etc.)</span>
+                    <span class="light-blue darken-1">使用条件</span> • 角色装备或使用物品时必须满足的条件。
+                    <span class="grey-text">（例如：力量、敏捷、智力等）</span>
                 </div>
 
                 <div style="padding-top: 4px;">
-                    <span class="pink darken-1">Use Cost</span> • What is required to use an item.
-                    <span class="grey-text">(ex.: mana, stamina, action points, etc.)</span>
+                    <span class="pink darken-1">使用消耗</span> • 使用物品所需的消耗。
+                    <span class="grey-text">（例如：法力、体力、行动点等）</span>
                 </div>
 
                 <div style="padding-top: 4px;">
-                    <span class="light-green darken-1">Range</span> • The reach of an item. An action can be performed
-                    from any purple square on any green square.
+                    <span class="light-green darken-1">作用距离</span> • 物品的作用距离：可从任意紫色格对任意绿色格发动行动。
                 </div>
 
                 <img src="./assets/icons/close-range.png"
-                    style="vertical-align: middle; height: 32px; margin-top: 2px;"> •
-                Close-range example. You can reach only targets in the adjacent column.
+                    style="vertical-align: middle; height: 32px; margin-top: 2px;"> • 近程示例：只能作用于相邻一列的目标。
                 <br>
                 <img src="./assets/icons/long-range.png" style="vertical-align: middle; height: 32px; margin-top: 2px;">
-                • Long-range example. You can reach any targets except those in the adjacent column.
+                • 远程示例：可以作用于相邻一列以外的任何目标。
                 <br>
 
                 <div style="padding-top: 4px;">
-                    <span class="light-green darken-1">Spread</span> • An item effect spread. The effect is duplicated
-                    from an orange square to the green ones.
+                    <span class="light-green darken-1">扩散范围</span> • 物品效果的扩散范围。橙色格上的效果也会作用于绿色格。
                 </div>
 
                 <img src="./assets/icons/spread-one-row.png"
                     style="vertical-align: middle; height: 32px; margin-top: 2px;">
-                • Affects adjacent targets in the same column.
+                • 影响同一列中相邻的目标。
                 <br>
 
                 <div style="padding-top: 4px;">
-                    <span class="red darken-1">Damage</span> • The damage type(s) an item can deal.
-                    <span class="grey-text">(ex.: stabbing, cutting, fire, poison, etc.)</span><br>
-                    Damage may have a base chance (%). Temporal damage has a duration (in rounds).
+                    <span class="red darken-1">伤害</span> • 物品能够造成的伤害类型。
+                    <span class="grey-text">（例如：穿刺、斩击、火焰、中毒等）</span><br>
+                    伤害可能带有基础触发概率（%）；持续伤害按回合计算持续时间。
                 </div>
 
                 <div style="padding-top: 4px;">
-                    <span class="purple darken-1">Modification</span> • Recovers and/or modifies various character
-                    attributes.
-                    <span class="grey-text">(ex.: health, stamina, agility, strength, luck, etc.)</span><br>
-                    Temporal modification has a duration (in rounds). Equipped items have a permanent modification
-                    effect.
+                    <span class="purple darken-1">属性变化</span> • 恢复或改变角色的各项属性。
+                    <span class="grey-text">（例如：生命值、体力、敏捷、力量、幸运等）</span><br>
+                    临时属性变化按回合计算持续时间；装备物品提供的属性变化在装备期间持续生效。
                 </div>
 
                 <div style="padding-top: 4px;">
-                    <span class="orange darken-1">Price</span> •
-                    An item's price.
+                    <span class="orange darken-1">价格</span> • 物品的购买价格。
                 </div>
 
                 <div style="padding-top: 4px;">
-                    <span class="orange darken-1">Purchase Price</span> •
-                    The price to sell the item back. Check the sell <img src="./assets/icons/sell-item.png"
-                        style="vertical-align: middle; padding-bottom: 4px; height: 20px;" /> checkbox to sell an item
-                    from your inventory.
+                    <span class="orange darken-1">回收价格</span> • 出售物品可以获得的金额。勾选出售 <img src="./assets/icons/sell-item.png"
+                        style="vertical-align: middle; padding-bottom: 4px; height: 20px;" /> 选项后，即可出售背包中的物品。
                 </div>
 
                 <div style="padding-top: 4px;">
-                    <span class="orange darken-1">Repair Price</span> •
-                    The price to repair an item. Check the repair <img src="./assets/icons/repair-item.png"
-                        style="vertical-align: middle; padding-bottom: 4px; height: 20px;" /> checkbox to repair an
-                    item in your inventory.
+                    <span class="orange darken-1">修理费用</span> • 修理物品所需的费用。勾选修理 <img src="./assets/icons/repair-item.png"
+                        style="vertical-align: middle; padding-bottom: 4px; height: 20px;" /> 选项后，即可修理背包中的物品。
                 </div>
 
                 <br>
                 <div class="center-align">
-                    <span class="amber-text"><b>Icons</b></span>
+                    <span class="amber-text"><b>图标</b></span>
                 </div>
                 <img src="./assets/icons/cant-use.png"
-                    style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">• An item cannot be
-                equipped <span class="grey-text">(requirements are not met)</span> or used <span class="grey-text">(not
-                    enough action points, stamina, mana, etc.)</span>
+                    style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">• 物品无法装备 <span class="grey-text">（未满足使用条件）</span> 或使用 <span class="grey-text">（行动点、体力或法力等不足）</span>
                 <br>
                 <img src="./assets/icons/broken.png"
-                    style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">• An item is broken
-                and cannot be equipped <span class="grey-text">(wearout has reached durability)</span>
+                    style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">• 物品已损坏，无法装备 <span class="grey-text">（磨损已达到耐久上限）</span>
                 <br>
                 <img src="./assets/icons/pawn.png"
-                    style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">• Action points.
+                    style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">• 行动点。
                 <br>
                 <img src="./assets/icons/dizzy.png"
-                    style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">• The character is
-                stunned and skips their current turn.
+                    style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">• 角色处于眩晕状态，跳过当前回合。
                 <br>
                 <img src="./assets/icons/tired.png"
-                    style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">• The character has
-                depleted their stamina. The damage they take causes critical damage.
+                    style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">• 角色体力已经耗尽；此时受到伤害会触发暴击。
                 <br>
                 <img src="./assets/icons/stress.png"
-                    style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">• The character is
-                under stress and runs away.
+                    style="vertical-align: middle; padding-bottom: 4px; width: 24px; margin: 4px;">• 角色因压力过大而逃跑。
                 <br>
 
                 <div class="center-align">
-                    <span class="amber-text"><b>Game mechanics</b></span>
+                    <span class="amber-text"><b>游戏机制</b></span>
                 </div>
                 <div style="padding: 4px;">
-                    <span class="red darken-2">Critical Damage</span> • Doubles the damage.
+                    <span class="red darken-2">暴击伤害</span> • 造成双倍伤害。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="red darken-2">Critical Miss</span> • If a character's attack misses and their stress
-                    is greater than zero, a critical miss check is performed.<br>
-                    The character may damage itself with double damage.
+                    <span class="red darken-2">严重失误</span> • 角色攻击未命中且压力大于零时，会进行严重失误判定。<br>
+                    角色可能对自己造成双倍伤害。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="green darken-2">Exhaustion</span> • Any instant physical damage absorbed by a
-                    character's equipment accumulates as exhaustion damage.<br>
-                    However, it cannot be enhanced by the opponent's intelligence.<br>
-                    If a character is hit while totally exhausted (stamina is zero), critical
-                    damage is dealt.
+                    <span class="green darken-2">疲劳</span> • 角色装备吸收的所有即时物理伤害都会累积为疲劳伤害。<br>
+                    但这种伤害不会受到对方智力的增强。<br>
+                    体力完全耗尽（体力为零）的角色被击中时，会受到暴击伤害。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="orange darken-2">Stun</span> • Any instant physical damage can cause stun.<br>
-                    When stunned, a character loses its turn in the current round and appears at the end of the turn
-                    order in the next round.<br>
-                    If a character is hit while stunned, critical damage is dealt and the stun is reset.
+                    <span class="orange darken-2">眩晕</span> • 任何即时物理伤害都可能造成眩晕。<br>
+                    眩晕的角色会失去本轮行动机会，并在下一轮排到行动顺序的最后。<br>
+                    眩晕中的角色再次被击中时，会受到暴击伤害，并重新计算眩晕。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="purple darken-2">Retreat</span> • If the stress attribute is greater than zero, before
-                    each character's turn the retreat check is performed.<br>
-                    A character can miss its turn by moving to a corner of the battlefield.
+                    <span class="purple darken-2">退缩</span> • 压力大于零时，每次角色行动前都会进行退缩判定。<br>
+                    角色可能退到战场角落，错过本次行动。
                 </div>
                 <div style="padding: 4px;">
-                    <span class="grey darken-2">Equipment Wearout</span> • Each successful action followed by damage, or
-                    each action that requires ammunition, increases the wearout of the character's weapon,
-                    as well as the wearout of the target's equipment. If the wearout of an item reaches its durability,
-                    the item can no longer be used and becomes unequipped.
+                    <span class="grey darken-2">装备磨损</span> • 每次成功造成伤害或消耗弹药的行动，都会增加角色武器以及目标装备的磨损。磨损达到耐久上限时，物品将无法继续使用，并自动卸下。
                 </div>
 
             </div>
             </b>
             <div class="col s12 center" style="padding-top: 10px;">
-                <button id="button_ok" class="btn-small blue">Close</button><br>
+                <button id="button_ok" class="btn-small blue">关闭</button><br>
             </div>
         </div>
     </div>
@@ -454,7 +404,7 @@
             <div class="col s8">
                 <b>
                     <span id="label_description" class="grey-text text-lighten-2"
-                        style="padding: 0;">Description</span><br><br>
+                        style="padding: 0;">说明</span><br><br>
                     <span id="label_requirements" class="orange-text" style="padding: 0;">1 / 10</span>
                 </b>
             </div>
@@ -465,9 +415,9 @@
     <img src="./assets/icons/cogwheel.png" id="settings_icon"
         style="vertical-align: middle; padding-bottom: 2px; padding-right: 4px; height: 22px; cursor: pointer;" />
     <button id="button_fullscreen" class="btn-small purple darken-3"
-        style="padding: 4px; margin-bottom: 2px; line-height: 0; max-height: 18px;">Full Screen</button>
+        style="padding: 4px; margin-bottom: 2px; line-height: 0; max-height: 18px;">全屏</button>
     <button id="button_rules" class="btn-small green darken-3"
-        style="padding: 4px; margin-bottom: 2px; line-height: 0; max-height: 18px;">Game Rules</button>
+        style="padding: 4px; margin-bottom: 2px; line-height: 0; max-height: 18px;">游戏规则</button>
     <b><span id="label_user_number" class="grey-text right"
             style="padding-right: 12px; padding-top: 2px; font-size: 12px;"></span></b>
 </div>

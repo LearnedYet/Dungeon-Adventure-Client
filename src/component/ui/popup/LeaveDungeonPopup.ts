@@ -57,13 +57,13 @@ export class LeaveDungeonPopup extends Container {
 
     public set booty(value: UnitBooty | undefined) {
         if (value) {
-            this.labelDescription.value = 'Take your share and leave?';
+            this.labelDescription.value = '领取自己应得的战利品并离开？';
             this.labelBooty.htmlValue =
                 this.renderer.keyValueIcon('coins', 'coin', value.coins) +
                 (value.ruby ? ('<br>' + this.renderer.keyValueIcon('ruby', 'ruby', value.ruby)) : '');
         } else {
-            this.labelDescription.value = 'Abandon the Dungeon?';
-            this.labelBooty.htmlValue = 'All the loot will be lost';
+            this.labelDescription.value = '放弃探索地下城？';
+            this.labelBooty.htmlValue = '将失去全部战利品';
         }
     }
 }

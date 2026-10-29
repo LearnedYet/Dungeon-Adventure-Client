@@ -108,18 +108,18 @@ export default class GameUnitItems extends GameBase {
             return;
         }
         if (data.type !== ItemType.ARMOR && data.type !== ItemType.AMMUNITION && !iconItem.chosen) {
-            iconItem.hint = 'Click to Select';
+            iconItem.hint = '点击选择';
             return;
         }
         if (data.type === ItemType.WEAPON || data.type === ItemType.ARMOR || data.type === ItemType.AMMUNITION) {
             if (!iconItem.usable) {
-                iconItem.hint = '!Can\'t Use';
+                iconItem.hint = '!无法使用';
             } else {
-                iconItem.hint = (data as Weapon).equipped ? 'Click to Unequip' : 'Click to Euip';
+                iconItem.hint = (data as Weapon).equipped ? '点击卸下' : '点击装备';
             }
             return;
         }
-        iconItem.hint = iconItem.chosen ? 'Selected' : '';
+        iconItem.hint = iconItem.chosen ? '已选择' : '';
     }
 
     protected checkUseCost(data: InventoryItem): boolean {

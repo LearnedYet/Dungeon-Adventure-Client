@@ -1,3 +1,4 @@
+import { localizeLabel, localizeEnumValue } from '../constants/Chinese';
 import { injectable, singleton } from 'tsyringe';
 import { ActionRange, GameUnit, Position, Unit, UnitInventory, Weapon } from '../domain/domain';
 import ActionService, { sum } from './ActionService';
@@ -50,7 +51,7 @@ export default class GameObjectRenderer {
                 result += this.keyValueColor('mana', 'blue', `${data.state.mana} / ${sum(this.actionService.baseAttributeTotalValue(data, 'mana'))}`);
                 result += this.keyValueColor('action points', 'orange', `${data.state.actionPoints} / ${sum(this.actionService.baseAttributeTotalValue(data, 'actionPoints'))}`);
                 result += this.keyValueColor('stress', 'blue-grey', `${data.state.stress ?? 0}`);
-                result += data.state.isStunned ? this.keyValue('stunned', data.state.isStunned ? 'yes' : 'no') : '';
+                result += data.state.isStunned ? this.keyValue('stunned', data.state.isStunned ? '是' : '否') : '';
             } else {
                 result += this.keyValueColor('health', 'red', `${sum(this.actionService.baseAttributeTotalValue(data, 'health'))}`);
                 result += this.keyValueColor('stamina', 'green', `${sum(this.actionService.baseAttributeTotalValue(data, 'stamina'))}`);
@@ -93,10 +94,10 @@ export default class GameObjectRenderer {
             result += this.keyValue('quantity', data.quantity);
         }
         if (data.equipped) {
-            result += this.keyValue('equipped', data.equipped ? 'yes' : 'no');
+            result += this.keyValue('equipped', data.equipped ? '是' : '否');
         }
         if (data.canBeSold) {
-            result += this.keyValue('canBeSold', data.canBeSold ? 'yes' : 'no');
+            result += this.keyValue('canBeSold', data.canBeSold ? '是' : '否');
         }
 
         return result;
@@ -319,13 +320,13 @@ export default class GameObjectRenderer {
 
     protected patchDuration(data: any): any {
         if (!data.duration) return data;
-        return { ...data, duration: `${data.duration} ${data.duration === 1 ? 'round' : 'rounds'}` };
+        return { ...data, duration: `${data.duration} ${data.duration === 1 ? '回合' : '回合'}` };
     }
 
     protected patchTrueFalse(data: any): any {
         return Object.keys(data).reduce((acc, k) => ({
             ...acc,
-            [k]: (String(data[k]) === 'true' ? 'yes' : data[k]),
+            [k]: (String(data[k]) === 'true' ? '是' : data[k]),
         }), {});
     }
 
@@ -376,11 +377,13 @@ export default class GameObjectRenderer {
     }
 
     protected keyValue(key: string, value: number | string | boolean | undefined): string {
+        value = typeof value === 'string' ? localizeEnumValue(key, value) : value;
         key = this.capitalize(key);
         return `<span class="orange-text text-lighten-1">${key}</span>: ${value}<br>`;
     }
 
     public keyValueIcon(key: string, icon: string, value?: number): string {
+        key = this.capitalize(key);
         return `<span class="orange-text text-lighten-1" style="padding: 0;">
             <img src="./assets/icons/${icon}.png" style="vertical-align: middle; padding-bottom: 4px; width: 12px;" />
             ${key}</span> ${value || 0}`;
@@ -407,6 +410,7 @@ export default class GameObjectRenderer {
     }
 
     protected keyValueColor(key: string, colorClass: string, value: number | string | boolean | undefined): string {
+        value = typeof value === 'string' ? localizeEnumValue(key, value) : value;
         key = this.capitalize(key);
         return `<span class="orange-text text-lighten-1">${key}</span>:
         <span class="${colorClass} lighten-1">${value}</span><br>`;
@@ -453,6 +457,8 @@ export default class GameObjectRenderer {
     }
 
     public capitalize(value: string): string {
+        const translated = localizeLabel(value);
+        if (translated !== value) return translated;
         return value.replace(/([a-z])([A-Z])/g, `$1 $2`).replace(/^./, char => char.toUpperCase());
     }
 }

@@ -86,10 +86,10 @@ export class Chat extends Component {
         this.chatMessages.value +=
             `<span class="${colorClass} black-text" style="font-size: 13px;">${nickname}</span>
             <span class="grey-text" style="font-size: 11px;">${date.toLocaleTimeString()}</span>` +
-            (currentuser ? '' : `<img src="./assets/icons/${muted ? 'no-sound' : 'sound'}.png" style="height: 11px; vertical-align: middle; cursor: pointer;" onclick="window.muteChatUser('${nickname}')" alt="mute"/>`) +
+            (currentuser ? '' : `<img src="./assets/icons/${muted ? 'no-sound' : 'sound'}.png" style="height: 11px; vertical-align: middle; cursor: pointer;" onclick="window.muteChatUser('${nickname}')" alt="屏蔽消息"/>`) +
             `<br>` +
             (muted ?
-                `<span class="grey-text" style="font-size: 13px;">muted</span><br>` :
+                `<span class="grey-text" style="font-size: 13px;">消息已屏蔽</span><br>` :
                 `<span style="font-size: 13px;">${convert(message.message)}</span><br>`);
     }
 }

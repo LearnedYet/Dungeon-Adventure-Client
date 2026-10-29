@@ -224,7 +224,7 @@ export default class Lobby extends Component implements ServerCommunicatorHandle
             .filter(p => p.unavailable !== true)
             .map(p => `<span class="green-text text-lighten-2">${p.nickname}</span>`);
         this.userNumberLabel.htmlValue =
-            `<span class="orange-text text-lighten-1">In lobby:</span> ${inLobby.join(',')}`;
+            `<span class="orange-text text-lighten-1">大厅中的玩家：</span> ${inLobby.join(',')}`;
     }
 
     public handleConnectionLost(): void {
@@ -255,7 +255,7 @@ export default class Lobby extends Component implements ServerCommunicatorHandle
                 this.rooms.delete(uid);
             }
         });
-        this.partiesButton.label = `Parties (${roomInfos.length})`;
+        this.partiesButton.label = `队伍（${roomInfos.length}）`;
         roomInfos.forEach(roomInfo => {
             const isUserInRoom: boolean = this.state.isUserInRoom(roomInfo);
             if (isUserInRoom) {

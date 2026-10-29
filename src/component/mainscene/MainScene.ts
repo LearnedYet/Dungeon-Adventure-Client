@@ -113,7 +113,7 @@ export default class MainScene extends Component implements ServerCommunicatorHa
 
     protected onServerStatus(data: ServerStatusData): void {
         this.state.usersNumber = data.usersNumber;
-        this.labelUserNumber.value = `Players online ${this.state.usersNumber}`;
+        this.labelUserNumber.value = `在线玩家：${this.state.usersNumber}`;
     }
 
     public handleServerResponse(response: Response): void {

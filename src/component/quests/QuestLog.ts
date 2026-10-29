@@ -71,7 +71,7 @@ export default class QuestLog extends Component implements ServerCommunicatorHan
         this.questsStatus = questsStatus;
         const activeQuests = this.questsStatus.quests.quests.filter(quest => quest.status == UnitQuestStatus.ACTIVE);
         this.questsStatusLabel.value = !activeQuests.length ?
-            '<span class="grey-text text-lighten-1">No active quests</span>' :
+            '<span class="grey-text text-lighten-1">当前没有进行中的任务</span>' :
             activeQuests.map(quest => this.renderQuestStatus(quest)).join('');
     }
 

@@ -95,7 +95,7 @@ export default class Login extends Component implements ServerCommunicatorHandle
         }
         if (!this.userNameInput.isValid) {
             this.errorLabel.show();
-            this.errorLabel.value = 'Latin letters, numbers, dashes, underscores, 4 characters min.'
+            this.errorLabel.value = '仅限英文字母、数字、连字符和下划线，至少 4 个字符。'
         } else {
             this.errorLabel.hide();
         }
@@ -130,7 +130,7 @@ export default class Login extends Component implements ServerCommunicatorHandle
         if (response.status === ResponseStatus.ALREADY_EXISTS || response.status === ResponseStatus.NOT_ALLOWED) {
             this.errorLabel.show();
             this.errorLabel.value = response.status === ResponseStatus.NOT_ALLOWED ?
-                'This nickname is reserved' : 'A user with this nickname already exists';
+                '该昵称为保留昵称' : '该昵称已被其他玩家使用';
             this.isJoining = false;
             return;
         }

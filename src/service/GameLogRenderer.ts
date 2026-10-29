@@ -1,3 +1,4 @@
+import { localizeLabel } from '../constants/Chinese';
 import { injectable, singleton } from 'tsyringe';
 import GameStateService from './GameStateService';
 import ActionService from './ActionService';
@@ -92,9 +93,9 @@ export default class GameLogRenderer {
         if (action.action.action === ActionType.USE &&
             actionResult.result === ActionResultType.ACCOMPLISHED) {
             if (!this._actionService.successfull(actionResult)) {
-                result.result.result = 'no success!';
+                result.result.result = '操作未成功！';
             } else if (!this._actionService.hasAnyEffect(actionResult)) {
-                result.result.result = 'no effect!';
+                result.result.result = '没有产生效果！';
             }
         }
         const actorUnit = this.findUnitByUid(action.action.uid!);
@@ -175,14 +176,14 @@ export default class GameLogRenderer {
         if (data.experience) {
             result.push(...Object.keys(data.experience).map(target => {
                 const exp = data.experience[target];
-                return `${target} gains ${exp} experience.`;
+                return `${target} 获得 ${exp} 点经验。`;
             }));
         }
         if (data.booty) {
-            const booty = Object.keys(data.booty).map(k => `${data.booty[k]} ${k}`);
-            result.push(`The party receives ${booty.join(', ')} of loot.`);
+            const booty = Object.keys(data.booty).map(k => `${data.booty[k]} ${localizeLabel(k)}`);
+            result.push(`队伍获得战利品：${booty.join('、')}。`);
         }
-        result.push('Level cleared!');
+        result.push('本层已通关！');
         return result.join('<br>');
     }
 
@@ -193,40 +194,40 @@ export default class GameLogRenderer {
             result.push(...Object.keys(data.damage).map(target => {
                 const damage = data.damage[target];
                 const d = Object.keys(data.damage[target])
-                    .filter(k => damage[k] !== 0 && Number.isInteger(damage[k])).map(k => `${damage[k]} ${k}`);
-                return `${target} takes ${d.join(', ')} damage.`;
+                    .filter(k => damage[k] !== 0 && Number.isInteger(damage[k])).map(k => `${damage[k]} ${localizeLabel(k)}`);
+                return `${target} 受到 ${d.join('、')} 伤害。`;
             }));
         }
         if (data.recovery) {
             result.push(...Object.keys(data.recovery).map(target => {
                 const recovery = data.recovery[target];
                 const r = Object.keys(data.recovery[target])
-                    .filter(k => recovery[k] !== 0 && Number.isInteger(recovery[k])).map(k => `${recovery[k]} ${k}`);
-                return `${target} restores ${r.join(', ')}.`;
+                    .filter(k => recovery[k] !== 0 && Number.isInteger(recovery[k])).map(k => `${recovery[k]} ${localizeLabel(k)}`);
+                return `${target} 恢复 ${r.join('、')}。`;
             }));
         }
         endRoundResult.damage && Object.keys(endRoundResult.damage).forEach(k => {
             const targetUnit = this.findUnitByUid(Number(k));
             const name: string = this.getUnitName(targetUnit);
             if (targetUnit?.isDead !== true && endRoundResult.damage![Number(k)].withStun) {
-                result.push(`${name} is stunned.`);
+                result.push(`${name} 已眩晕。`);
             }
             if (targetUnit?.isDead) {
-                result.push(`${name} is defeated.`);
+                result.push(`${name} 已被击败。`);
             }
         });
         if (data.experience) {
             result.push(...Object.keys(data.experience).map(target => {
                 const exp = data.experience[target];
-                return `${target} gains ${exp} experience.`;
+                return `${target} 获得 ${exp} 点经验。`;
             }));
         }
         if (data.drop) {
             result.push(...Object.keys(data.drop).map(target => {
                 const drop = data.drop[target];
                 const d = Object.keys(data.drop[target])
-                    .filter(k => drop[k] !== 0 && Number.isInteger(drop[k])).map(k => `${drop[k]} ${k}`);
-                return `${target} drops ${d.join(', ')}.`;
+                    .filter(k => drop[k] !== 0 && Number.isInteger(drop[k])).map(k => `${drop[k]} ${localizeLabel(k)}`);
+                return `${target} 掉落 ${d.join('、')}。`;
             }));
         }
         return result.join('<br>');
@@ -239,39 +240,39 @@ export default class GameLogRenderer {
         if (action.result.result !== ActionResultType.ACCOMPLISHED) {
             switch (action.result.result) {
                 case ActionResultType.CANT_USE:
-                    return `<span class="red-text darken-3">Can't use</span>`;
+                    return `<span class="red-text darken-3">无法使用</span>`;
                 case ActionResultType.IS_BROKEN:
-                    return `<span class="red-text darken-3">Item is broken</span>`;
+                    return `<span class="red-text darken-3">物品已损坏</span>`;
                 case ActionResultType.NOT_ALLOWED:
-                    return `<span class="red-text darken-3">Not allowed</span>`;
+                    return `<span class="red-text darken-3">不允许此操作</span>`;
                 case ActionResultType.NOT_EMPTY:
-                    return `<span class="red-text darken-3">Not empty</span>`;
+                    return `<span class="red-text darken-3">位置并非空置</span>`;
                 case ActionResultType.NOT_EUIPPED:
-                    return `<span class="red-text darken-3">Not equipped</span>`;
+                    return `<span class="red-text darken-3">尚未装备</span>`;
                 case ActionResultType.NOT_REACHABLE:
-                    return `<span class="red-text darken-3">Can't reach</span>`;
+                    return `<span class="red-text darken-3">目标超出范围</span>`;
                 case ActionResultType.NOT_ACCOMPLISHED:
-                    return `<span class="red-text darken-3">Not accomplished</span>`;
+                    return `<span class="red-text darken-3">操作未完成</span>`;
                 case ActionResultType.NOT_FOUND:
-                    return `<span class="red-text darken-3">Not found</span>`;
+                    return `<span class="red-text darken-3">未找到目标</span>`;
                 case ActionResultType.NO_AMMUNITION:
-                    return `<span class="red-text darken-3">No ammunition</span>`;
+                    return `<span class="red-text darken-3">没有弹药</span>`;
             }
             return '';
         }
         switch (action.action.action) {
             case ActionType.EQUIP:
-                return `${name} equips ${data.action.item}.`;
+                return `${name} 装备了 ${data.action.item}。`;
             case ActionType.UNEQUIP:
-                return `${name} unequips ${data.action.item}.`;
+                return `${name} 卸下了 ${data.action.item}。`;
             case ActionType.PLACE:
             case ActionType.MOVE:
                 return this._state.gameState.nextPhase === GamePhase.RETREAT_ACTION ?
-                    `${name} runs in panic.` : `${name} moves.`;
+                    `${name} 惊慌逃窜。` : `${name} 移动了。`;
             case ActionType.WAIT:
-                return `${name} waits.`;
+                return `${name} 等待。`;
             case ActionType.SKIP:
-                return `${name} skips.`;
+                return `${name} 结束回合。`;
             case ActionType.USE:
                 return this.renderUseAction(name, action, data).filter(s => s).join('<br>');
         }
@@ -286,16 +287,16 @@ export default class GameLogRenderer {
         ]).forEach(targetUid => {
             if (!this._actionService.hasEffect(action.result, targetUid)) {
                 const targetUnit = this.findUnitByUid(targetUid);
-                result.push(`${name} misses ${this.getUnitName(targetUnit)}.`);
+                result.push(`${name} 未命中 ${this.getUnitName(targetUnit)}。`);
             }
         })
         if (data.result.instantDamage) {
             result.push(...Object.keys(data.result.instantDamage).map(target => {
                 const damages = data.result.instantDamage[target] as any[];
                 const damage = damages.flatMap(d => Object.keys(d)
-                    .filter(k => Number.isInteger(d[k])).map(k => `${d[k]} ${k}`));
+                    .filter(k => Number.isInteger(d[k])).map(k => `${d[k]} ${localizeLabel(k)}`));
                 if (!damage.length) return '';
-                return `${name} deals ${damage.join(', ')} damage to ${target}.`;
+                return `${name} 对 ${target} 造成 ${damage.join('、')} 伤害。`;
             }));
         }
         if (data.result.temporalDamage) {
@@ -304,8 +305,8 @@ export default class GameLogRenderer {
                     const damage = data.result.temporalDamage[target] as any[];
                     if (!damage.length) return '';
                     return damage.flatMap(d => {
-                        const damage = Object.keys(d).filter(k => k !== 'duration' && Number.isInteger(d[k])).map(k => `${d[k]} ${k}`)
-                        return `${name} deals ${damage.join(', ')} damage to ${target} for ${d.duration} rounds.`;
+                        const damage = Object.keys(d).filter(k => k !== 'duration' && Number.isInteger(d[k])).map(k => `${d[k]} ${localizeLabel(k)}`)
+                        return `${name} 对 ${target} 造成 ${damage.join('、')} 伤害，持续 ${d.duration} 回合。`;
                     });
                 });
             if (temporalDamage.length) {
@@ -316,9 +317,9 @@ export default class GameLogRenderer {
             const recovery = Object.keys(data.result.instantRecovery).map(target => {
                 const recoveries = data.result.instantRecovery[target] as any[];
                 const recovery = recoveries.flatMap(r => Object.keys(r)
-                    .filter(k => r[k] !== 0 && Number.isInteger(r[k])).map(k => `${r[k]} ${k}`));
+                    .filter(k => r[k] !== 0 && Number.isInteger(r[k])).map(k => `${r[k]} ${localizeLabel(k)}`));
                 if (!recovery.length) return '';
-                return `${name} restores ${recovery.join(', ')} to ${target}.`;
+                return `${name} 为 ${target} 恢复 ${recovery.join('、')}。`;
             });
             if (recovery) {
                 result.push(...recovery);
@@ -331,28 +332,28 @@ export default class GameLogRenderer {
                     const duration = r.duration;
                     if (r.recovery) {
                         const recovery = Object.keys(r.recovery)
-                            .filter(k => r.recovery[k] !== 0 && Number.isInteger(r.recovery[k])).map(k => `${r.recovery[k]} ${k}`);
-                        result.push(`${name} adds ${recovery.join(', ')} of recovery to ${target} for ${duration} rounds.`);
+                            .filter(k => r.recovery[k] !== 0 && Number.isInteger(r.recovery[k])).map(k => `${r.recovery[k]} ${localizeLabel(k)}`);
+                        result.push(`${name} 为 ${target} 增加 ${recovery.join('、')} 恢复效果，持续 ${duration} 回合。`);
                     }
                     if (r.damage) {
                         const damage = Object.keys(r.damage)
-                            .filter(k => r.damage[k] !== 0 && Number.isInteger(r.damage[k])).map(k => `${r.damage[k]} ${k}`);
-                        result.push(`${name} adds ${damage.join(', ')} of damage to ${target} for ${duration} rounds.`);
+                            .filter(k => r.damage[k] !== 0 && Number.isInteger(r.damage[k])).map(k => `${r.damage[k]} ${localizeLabel(k)}`);
+                        result.push(`${name} 为 ${target} 增加 ${damage.join('、')} 伤害效果，持续 ${duration} 回合。`);
                     }
                     if (r.attributes) {
                         const attributes = Object.keys(r.attributes)
-                            .filter(k => r.attributes[k] !== 0 && Number.isInteger(r.attributes[k])).map(k => `${r.attributes[k]} ${k}`);
-                        result.push(`${name} adds ${attributes.join(', ')} attributes to ${target} for ${duration} rounds.`);
+                            .filter(k => r.attributes[k] !== 0 && Number.isInteger(r.attributes[k])).map(k => `${r.attributes[k]} ${localizeLabel(k)}`);
+                        result.push(`${name} 为 ${target} 增加 ${attributes.join('、')} 属性，持续 ${duration} 回合。`);
                     }
                     if (r.baseAttributes) {
                         const baseAttributes = Object.keys(r.baseAttributes)
-                            .filter(k => r.baseAttributes[k] !== 0 && Number.isInteger(r.baseAttributes[k])).map(k => `${r.baseAttributes[k]} ${k}`);
-                        result.push(`${name} adds ${baseAttributes.join(', ')} attributes to ${target} for ${duration} rounds.`);
+                            .filter(k => r.baseAttributes[k] !== 0 && Number.isInteger(r.baseAttributes[k])).map(k => `${r.baseAttributes[k]} ${localizeLabel(k)}`);
+                        result.push(`${name} 为 ${target} 增加 ${baseAttributes.join('、')} 属性，持续 ${duration} 回合。`);
                     }
                     if (r.resistance) {
                         const resistance = Object.keys(r.resistance)
-                            .filter(k => r.resistance[k] !== 0 && Number.isInteger(r.resistance[k])).map(k => `${r.resistance[k]} ${k}`);
-                        result.push(`${name} adds ${resistance.join(', ')} resistance to ${target} for ${duration} rounds.`);
+                            .filter(k => r.resistance[k] !== 0 && Number.isInteger(r.resistance[k])).map(k => `${r.resistance[k]} ${localizeLabel(k)}`);
+                        result.push(`${name} 为 ${target} 增加 ${resistance.join('、')} 抗性，持续 ${duration} 回合。`);
                     }
                     return result;
                 });
@@ -365,24 +366,24 @@ export default class GameLogRenderer {
             const targetUnit = this.findUnitByUid(Number(k));
             const name: string = this.getUnitName(targetUnit);
             if (targetUnit?.isDead !== true && action.result.instantDamage![Number(k)].some(d => d.withStun)) {
-                result.push(`${name} is stunned.`);
+                result.push(`${name} 已眩晕。`);
             }
             if (targetUnit?.isDead) {
-                result.push(`${name} is defeated.`);
+                result.push(`${name} 已被击败。`);
             }
         });
         if (data.result.experience) {
             result.push(...Object.keys(data.result.experience).map(target => {
                 const exp = data.result.experience[target];
-                return `${target} gains ${exp} experience.`;
+                return `${target} 获得 ${exp} 点经验。`;
             }));
         }
         if (data.result.drop) {
             result.push(...Object.keys(data.result.drop).map(target => {
                 const drop = data.result.drop[target];
                 const d = Object.keys(data.result.drop[target])
-                    .filter(k => drop[k] !== 0 && Number.isInteger(drop[k])).map(k => `${drop[k]} ${k}`);
-                return `${target} drops ${d.join(', ')}.`;
+                    .filter(k => drop[k] !== 0 && Number.isInteger(drop[k])).map(k => `${drop[k]} ${localizeLabel(k)}`);
+                return `${target} 掉落 ${d.join('、')}。`;
             }));
         }
         return result;

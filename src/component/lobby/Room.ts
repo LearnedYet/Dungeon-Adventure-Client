@@ -74,7 +74,7 @@ export default class Room extends Component {
         const clazz = this.state.userState.playerInfo.class;
         this.userPlaceholders[0].show();
         this.userNameLabels[0].value = roomInfo.host.nickname;
-        this.userLevelLabels[0].value = `Level: ${roomInfo.host.level}`;
+        this.userLevelLabels[0].value = `等级：${roomInfo.host.level}`;
         this.userIcons[0].icon = roomInfo.host.code;
         this.userIcons[0].descriptionPopup = this._objectDescription;
         this.userIcons[0].description = { [clazz]: BASE_UNIT_DESCRIPTIONS[roomInfo.host.code]?.description };
@@ -85,7 +85,7 @@ export default class Room extends Component {
             const clazz = user.class;
             this.userPlaceholders[i + 1].show();
             this.userNameLabels[i + 1].value = user.nickname;
-            this.userLevelLabels[i + 1].value = `Level: ${user.level}`;
+            this.userLevelLabels[i + 1].value = `等级：${user.level}`;
             this.userIcons[i + 1].icon = user.code;
             this.userIcons[i + 1].descriptionPopup = this._objectDescription;
             this.userIcons[i + 1].description = { [clazz]: BASE_UNIT_DESCRIPTIONS[user.code]?.description };

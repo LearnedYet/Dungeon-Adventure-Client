@@ -143,7 +143,7 @@ export default class GameFlowControls extends GameBase {
 
     public update(): void {
         this.dungeonNameLabel.value = this.state.gameState.spot.name;
-        this.dungeonStateLabel.value = `Dungeon Level: ${this.state.gameState.state.spotNumber} / ${this.state.gameState.state.spotsTotal}`;
+        this.dungeonStateLabel.value = `地下城层数：${this.state.gameState.state.spotNumber} / ${this.state.gameState.state.spotsTotal}`;
         this.updatenextPhaseLabel();
         this.updateusersInGame();
         const unit = this.playersUnit();
@@ -151,10 +151,10 @@ export default class GameFlowControls extends GameBase {
             const healthTotal = this.actionService.baseAttributeTotalValue(unit, 'health').reduce((acc, v) => acc + v, 0);
             const staminaTotal = this.actionService.baseAttributeTotalValue(unit, 'stamina').reduce((acc, v) => acc + v, 0);
             const manaTotal = this.actionService.baseAttributeTotalValue(unit, 'mana').reduce((acc, v) => acc + v, 0);
-            this.labelHealth.value = `HP: ${unit.state.health} / ${healthTotal}`;
-            this.labelStamina.value = `SP: ${unit.state.stamina} / ${staminaTotal}`;
-            this.labelMana.value = `MP: ${unit.state.mana} / ${manaTotal}`;
-            this.labelStress.value = `STRESS: ${unit.state.stress ?? 0}`;
+            this.labelHealth.value = `生命值：${unit.state.health} / ${healthTotal}`;
+            this.labelStamina.value = `体力：${unit.state.stamina} / ${staminaTotal}`;
+            this.labelMana.value = `法力：${unit.state.mana} / ${manaTotal}`;
+            this.labelStress.value = `压力：${unit.state.stress ?? 0}`;
             if (unit.state.stress) {
                 this.labelStress.view.classList.add('red-text');
                 this.labelStress.view.classList.remove('grey-text');
@@ -162,7 +162,7 @@ export default class GameFlowControls extends GameBase {
                 this.labelStress.view.classList.add('grey-text');
                 this.labelStress.view.classList.remove('red-text');
             }
-            this.labelActionPoints.value = unit.state.actionPoints ? `AP: ${unit.state.actionPoints}` : '';
+            this.labelActionPoints.value = unit.state.actionPoints ? `行动点：${unit.state.actionPoints}` : '';
             this.healthBar.width = Math.min(unit.state.health / (healthTotal || 1) * this.BAR_WIDTH, this.BAR_WIDTH);
             this.staminaBar.width = Math.min(unit.state.stamina / (staminaTotal || 1) * this.BAR_WIDTH, this.BAR_WIDTH);
             this.manaBar.width = Math.min(unit.state.mana / (manaTotal || 1) * this.BAR_WIDTH, this.BAR_WIDTH);
@@ -270,23 +270,23 @@ export default class GameFlowControls extends GameBase {
     protected nextPhaseDescription(): string {
         switch (this.state.gameState.nextPhase) {
             case GamePhase.PREPARE_UNIT:
-                return this.state.playerInfo?.isReady ? 'Wait for another player' : 'Prepare for the battle';
+                return this.state.playerInfo?.isReady ? '等待其他玩家' : '准备战斗';
             case GamePhase.ACTION_COMPLETE:
-                return 'Action complete';
+                return '行动已完成';
             case GamePhase.TAKE_ACTION:
-                return this.isCurrentUnitTurn() ? 'Take your action' : 'Wait for the player action';
+                return this.isCurrentUnitTurn() ? '请进行行动' : '等待玩家行动';
             case GamePhase.TAKE_ACTION_AI:
-                return this.currentUnit()?.faction === GameUnitFaction.PARTY ? 'Wait for the mercenary action' : 'Wait for the monster action';
+                return this.currentUnit()?.faction === GameUnitFaction.PARTY ? '等待佣兵行动' : '等待怪物行动';
             case GamePhase.READY_FOR_START_ROUND:
-                return 'Next round';
+                return '进入下一回合';
             case GamePhase.SPOT_COMPLETE:
-                return this.state.playerInfo?.isReady ? 'Wait for another player' : 'Prepare for the next battle';
+                return this.state.playerInfo?.isReady ? '等待其他玩家' : '准备下一场战斗';
             case GamePhase.SCENARIO_COMPLETE:
-                return 'The dungeon is clear';
+                return '地下城已通关';
             case GamePhase.RETREAT_ACTION:
-                return 'Unit is running away';
+                return '角色正在逃跑';
             case GamePhase.BEFORE_SPOT_COMPLETE:
-                return 'All monsters are defeated';
+                return '所有怪物均已击败';
         }
     }
 

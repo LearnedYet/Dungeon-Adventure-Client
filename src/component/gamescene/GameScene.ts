@@ -319,38 +319,38 @@ export default class GameScene extends GameBase implements ServerCommunicatorHan
     protected updateGamePhaseInfo(): void {
         const infoIcon = '<img src="./assets/icons/info.png" style="height:24px; vertical-align: middle; padding-bottom: 4px;" />';
         if (this.playersUnit()?.isDead) {
-            this.gamePhaseInfoLabel.htmlValue = `${infoIcon} You have been defeated.<br>
-                No loot can be claimed. Press <span class="red-text">ABANDON</span> to return to the hub.`;
+            this.gamePhaseInfoLabel.htmlValue = `${infoIcon} 你已被击败。<br>
+                无法领取战利品。点击<span class="red-text">放弃</span>返回主界面。`;
             return;
         }
         switch (this.state.gameState.nextPhase) {
             case GamePhase.PREPARE_UNIT:
-                this.gamePhaseInfoLabel.htmlValue = `${infoIcon} Prepare for the battle.<br>
-                Place your character in a vacant spot. Equip your gear. No item can be used right now.<br>Press <span class="blue-text">READY</span> to begin the battle.`;
+                this.gamePhaseInfoLabel.htmlValue = `${infoIcon} 准备战斗。<br>
+                将角色放到空位上，并装备好物品。当前无法使用物品。<br>点击<span class="blue-text">准备</span>开始战斗。`;
                 if (!this.gameLog.value) {
-                    this.gameLog.value = `You enter level ${this.state.gameState.state.spotNumber} of ${this.state.gameState.spot.name}`;
+                    this.gameLog.value = `你进入了${this.state.gameState.spot.name}的第 ${this.state.gameState.state.spotNumber} 层`;
                 }
                 break;
             case GamePhase.SPOT_COMPLETE:
-                this.gamePhaseInfoLabel.htmlValue = `${infoIcon} Take a rest and prepare for the next battle.<br>
-                Press <span class="green-text">I'M DONE</span> if you want to take your share and leave the dungeon.<br>
-                Otherwise, consume the<span class="purple-text lighten-4">provision</span>to restore. Press <span class="orange-text">NEXT</span> to get ready for more.`;
+                this.gamePhaseInfoLabel.htmlValue = `${infoIcon} 休整一下，准备下一场战斗。<br>
+                如果想领取自己应得的战利品并离开地下城，请点击<span class="green-text">撤离</span>。<br>
+                也可以使用<span class="purple-text lighten-4">补给品</span>恢复状态，再点击<span class="orange-text">下一层</span>继续冒险。`;
                 break;
             case GamePhase.SCENARIO_COMPLETE:
                 if (this.state.userState.unit.achievements[ACHIEVEMENT_IDS.FIRST_BLOOD]) {
-                    this.gamePhaseInfoLabel.htmlValue = `${infoIcon} The battle is over!<br>
-                    Congratulations! You have reached the end of the dungeon!<br>
-                    Press <span class="green-text">I'M DONE</span> to take your share and leave the dungeon.`;
+                    this.gamePhaseInfoLabel.htmlValue = `${infoIcon} 战斗结束！<br>
+                    恭喜！你已到达地下城的尽头！<br>
+                    点击<span class="green-text">撤离</span>领取自己应得的战利品并离开地下城。`;
                 } else {
-                    this.gamePhaseInfoLabel.htmlValue = `${infoIcon} The training is over!<br>
-                    Congratulations! You have completed your training!<br>
-                    Press <span class="green-text">I'M DONE</span> to take your reward and leave.`;
+                    this.gamePhaseInfoLabel.htmlValue = `${infoIcon} 训练结束！<br>
+                    恭喜！你已完成训练！<br>
+                    点击<span class="green-text">撤离</span>领取奖励并离开。`;
                 }
                 break;
             default:
-                this.gamePhaseInfoLabel.htmlValue = `${infoIcon} The battle is taking turns.<br>
-                Character movement costs<span class="orange-text">4</span>action points. Select a<span class="red-text">weapon</span>/<span class="purple-text">magic</span>/<span class="green-text">disposable</span>to attack the enemy.<br> 
-                Select a<span class="green-text">disposable</span>/<span class="purple-text">magic</span>to recover / buff yourself or an ally. Changing gear costs<span class="orange-text">no</span>action points.`;
+                this.gamePhaseInfoLabel.htmlValue = `${infoIcon} 战斗按回合进行。<br>
+                角色移动消耗<span class="orange-text">4</span>个行动点。选择<span class="red-text">武器</span>、<span class="purple-text">法术</span>或<span class="green-text">消耗品</span>攻击敌人。<br>
+                选择<span class="green-text">消耗品</span>或<span class="purple-text">法术</span>，为自己或队友恢复状态、施加增益。更换装备<span class="orange-text">不消耗</span>行动点。`;
                 break;
         }
     }

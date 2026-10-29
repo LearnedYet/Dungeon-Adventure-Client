@@ -9,9 +9,9 @@ export const USER_CLASSES: string[] = [
 
 export const BASE_UNIT_DESCRIPTIONS: { [key: string]: any } = {
     warrior: {
-        name: "Warrior",
+        name: "战士",
         code: "warrior",
-        description: "A disciplined fighter from the noble elite, a master of sword and shield. They bears the bitter memory of sieges and broken banners, standing immovable while empires rot around his feet.",
+        description: "出身贵族精英的严谨战士，精通剑与盾。围城与残破战旗的苦涩记忆始终伴随着他；纵使帝国在脚下腐朽，他依然岿然不动。",
         stats: {
             progress: {
                 level: 1
@@ -75,9 +75,9 @@ export const BASE_UNIT_DESCRIPTIONS: { [key: string]: any } = {
         },
     },
     barbarian: {
-        name: "Barbarian",
+        name: "野蛮人",
         code: "barbarian",
-        description: "A hulking brute from the frozen wastes, wielding axe and fury in equal measure. Scarred and relentless, they walks like a storm, each swing a funeral bell for fallen keeps; his laughter tastes of iron and frost.",
+        description: "来自冰封荒原的魁梧勇士，挥斧之时怒火相随。他伤痕累累而又不屈，如风暴般前行；每次挥击都像为陷落城堡敲响丧钟，笑声中满是铁与霜的气息。",
         stats: {
             progress: {
                 level: 1
@@ -141,9 +141,9 @@ export const BASE_UNIT_DESCRIPTIONS: { [key: string]: any } = {
         },
     },
     ranger: {
-        name: "Ranger",
+        name: "游侠",
         code: "ranger",
-        description: "A swift archer of the wilds, deadly with bow and blade. Haunted by hollowed woods and moonlit tracks, they slip like smoke between ruined trees, each arrow a clean, whispered verdict against the dark.",
+        description: "身手敏捷的荒野射手，弓与利刃皆可致命。幽寂森林和月下足迹萦绕心头；他如烟雾般穿行于残木之间，每一箭都是对黑暗无声而干脆的裁决。",
         stats: {
             progress: {
                 level: 1
@@ -215,9 +215,9 @@ export const BASE_UNIT_DESCRIPTIONS: { [key: string]: any } = {
 
     },
     mage: {
-        name: "Mage",
+        name: "法师",
         code: "mage",
-        description: "A scholarly sorcerer wielding arcane forces, bending magic to their will. Keeper of ash-black tomes and forbidden runes, they trade warmth for insight and call cold stars down into mortal flesh to learn what nightmares whisper.",
+        description: "学识渊博的施法者，驾驭奥术，使魔法服从自己的意志。他守护灰黑古籍与禁忌符文，以温暖换取洞见，将冰冷星辰引入凡人血肉，只为听清噩梦的低语。",
         stats: {
             progress: {
                 level: 1
@@ -292,10 +292,10 @@ export const BASE_UNIT_DESCRIPTIONS: { [key: string]: any } = {
         },
     },
     "villager-01": {
-        name: "Villager",
+        name: "村民",
         code: "villager-01",
         class: "opportunist",
-        description: "Once a simple villager, he now wanders the shadowed roads with a nameless hunger for danger. The harvest moon revealed a restless spirit beneath his weathered skin as he answers the call of ruined keeps and blood-soaked bargains.",
+        description: "他曾是普通村民，如今却怀着对危险莫名的渴望，徘徊于阴暗道路。丰收之月照见了他饱经风霜外表下躁动的灵魂，而他正回应废弃城堡与染血交易的召唤。",
         stats: {
             progress: {
                 level: 1
@@ -333,10 +333,10 @@ export const BASE_UNIT_DESCRIPTIONS: { [key: string]: any } = {
         }
     },
     "soldier-01": {
-        name: "Soldier",
+        name: "士兵",
         code: "soldier-01",
         class: "opportunist",
-        description: "A once-proud royal guard, now scarred and soured by endless nights hunting infernal horrors. His blade still remembers the discipline of the king's service, but his eyes hold the cold resolve of one who has stared into the abyss and refused to blink.",
+        description: "他曾是骄傲的皇家卫兵，却在无数追猎地狱怪物的黑夜中遍体鳞伤、心生苦涩。他的剑仍记得侍奉国王时的纪律；他的目光则凝聚着直视深渊也不肯退缩的冷峻决心。",
         stats: {
             progress: {
                 level: 5
@@ -374,13 +374,13 @@ export const BASE_UNIT_DESCRIPTIONS: { [key: string]: any } = {
         }
     },
     "knight-01": {
-        name: "Knight",
+        name: "骑士",
         code: "knight-01",
         class: "opportunist",
         booty: {},
         achievements: {},
         quests: {},
-        description: "Once the princess's personal guard, now a haunted avenger burdened by failure and fire. His oath has turned to bitter steel, and he stalks the shadows seeking the Dragon's blood and the salvation of his own damned soul.",
+        description: "他曾是公主的贴身护卫，如今背负失败与烈火的阴影，化作受往事折磨的复仇者。誓言已铸成冰冷利刃；他潜行于阴影，寻求巨龙之血，也寻求自己受诅灵魂的救赎。",
         stats: {
             progress: {
                 level: 10

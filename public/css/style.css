@@ -14,6 +14,17 @@ body {
     scrollbar-color: rgb(97, 97, 97) #00000000;
     background-color: rgb(18, 18, 18);
     font-size: 14px;
+    font-family: system-ui, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+.game-title {
+    margin: 20px 0;
+    color: #f4d78b;
+    font-size: clamp(32px, 8vw, 48px);
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: 0.12em;
+    text-shadow: 0 2px 4px #000;
 }
 
 .main-scene-container {

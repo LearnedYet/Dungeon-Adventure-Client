@@ -139,26 +139,26 @@ export class ShopItemPopup extends Container {
         }
         let price: UnitBooty;
         if (this._mode === ShopItemPopupMode.BUY) {
-            this.labelDescription.htmlValue = `Buy<span class="green-text lighten-4">${this._item.name}</span>?`;
+            this.labelDescription.htmlValue = `购买<span class="green-text lighten-4">${this._item.name}</span>？`;
             price = {
                 coins: this._item.price.coins * this.quantity,
                 ruby: (this._item.price.ruby ?? 0) * this.quantity
             };
         } else if (this._mode === ShopItemPopupMode.SELL) {
-            this.labelDescription.htmlValue = `Sell<span class="green-text lighten-4">${this._item.name}</span>?`;
+            this.labelDescription.htmlValue = `出售<span class="green-text lighten-4">${this._item.name}</span>？`;
             price = {
                 coins: (this._item as any).purchasePrice.coins * this.quantity,
                 ruby: ((this._item as any).purchasePrice.ruby ?? 0) * this.quantity
             };
         } else if (this._mode === ShopItemPopupMode.REPAIR_ALL) {
-            this.labelDescription.htmlValue = `Repair<span class="green-text lighten-4">All</span>?`;
+            this.labelDescription.htmlValue = `修理<span class="green-text lighten-4">全部装备</span>？`;
             price = {
                 coins: (this._item as any).repairPrice.coins,
                 ruby: ((this._item as any).repairPrice.ruby ?? 0)
             };
         }
         else {
-            this.labelDescription.htmlValue = `Repair<span class="green-text lighten-4">${this._item.name}</span>?`;
+            this.labelDescription.htmlValue = `修理<span class="green-text lighten-4">${this._item.name}</span>？`;
             price = {
                 coins: (this._item as any).repairPrice.coins,
                 ruby: ((this._item as any).repairPrice.ruby ?? 0)

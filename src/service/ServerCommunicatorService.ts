@@ -135,7 +135,7 @@ export default class ServerCommunicatorService {
     }
 
     private onError(event: ErrorEvent): void {
-        console.log('Error:', event.error);
+        console.log('错误：', event.error);
     }
 
     private onOpen(event: Event): void {

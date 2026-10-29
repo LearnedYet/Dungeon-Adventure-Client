@@ -19,7 +19,7 @@ export default class ResourceLoaderService {
             const response = await fetch(path + '?v=' + this.appConfig.version);
             return await this.parseResponse(response, path, type);
         } catch (error) {
-            console.error(`Error occured while loading ${path}`);
+            console.error(`加载 ${path} 时发生错误`);
             throw error;
         }
     }

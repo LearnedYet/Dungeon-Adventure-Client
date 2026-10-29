@@ -19,8 +19,8 @@ export default class GameBooty extends GameBase {
     protected initialize(): void {
         this.bootyIcons.set('coins', ItemIcon.createItemIcon('coins', this)!);
         this.bootyIcons.set('rubies', ItemIcon.createItemIcon('rubies', this)!);
-        this.bootyIcons.get('coins')!.name = 'Coins';
-        this.bootyIcons.get('rubies')!.name = 'Rubies';
+        this.bootyIcons.get('coins')!.name = '金币';
+        this.bootyIcons.get('rubies')!.name = '红宝石';
     }
 
     public update(): void {

@@ -3,26 +3,26 @@
         <div id="flow_controls_container" class="col s4 center-align">
             <div class="row">
                 <div class="col" style="margin-top: 0;">
-                    <button id="button_abandon" class="btn-small red darken-3">Abandon</button>
-                    <button id="button_leave" class="btn-small green darken-2">I'm Done</button>
+                    <button id="button_abandon" class="btn-small red darken-3">放弃</button>
+                    <button id="button_leave" class="btn-small green darken-2">撤离</button>
                 </div>
                 <div class="row">
                     <button id="button_wait" class="btn-small green darken-2 col s2"
-                        style="margin-right: 10px;">Wait</button>
-                    <button id="button_next_phase" class="btn-small blue darken-2">Ready</button>
-                    <button id="button_next_battle" class="btn-small darken-4 yellow">Next</button>
-                    <button id="button_skip" class="btn-small purple darken-2">End Turn</button>
+                        style="margin-right: 10px;">等待</button>
+                    <button id="button_next_phase" class="btn-small blue darken-2">准备</button>
+                    <button id="button_next_battle" class="btn-small darken-4 yellow">下一层</button>
+                    <button id="button_skip" class="btn-small purple darken-2">结束回合</button>
                 </div>
             </div>
             <div class="left-align" style="padding: 0; margin-top: -32px; height: 12px; white-space: nowrap;">
-                <span id="label_users_in_game" class="white-text left">Users</span>
+                <span id="label_users_in_game" class="white-text left">玩家</span>
             </div><br>
             <div class="col s8" style="padding: 0;">
                 <div class="left-align" style="padding: 0;  height: 12px;">
-                    <span id="label_dungeon_name" class="white-text purple darken-2">Dungeon</span>
+                    <span id="label_dungeon_name" class="white-text purple darken-2">地下城</span>
                 </div><br>
                 <div class="left-align" style="padding: 0; height: 12px;">
-                    <span class="white-text grey darken-2" style="height: 100px;">Party Loot:
+                    <span class="white-text grey darken-2" style="height: 100px;">队伍战利品：
                         <img src="./assets/icons/coin.png"
                             style="height: 20px; vertical-align: middle; padding-bottom: 4px;" /><span
                             id="label_loot_coins">100</span>
@@ -32,7 +32,7 @@
                     </span>
                 </div><br>
                 <div class="left-align" style="padding: 0; height: 12px;">
-                    <span id="label_dungeon_state" class="white-text grey darken-2">Dungeon Level: 7</span><br>
+                    <span id="label_dungeon_state" class="white-text grey darken-2">地下城层数：7</span><br>
                 </div><br>
                 <div class="left-align" style="padding: 0; height: 12px; width: 200%;">
                     <span id="label_game_status" class="white-text green darken-2"></span>
@@ -77,13 +77,13 @@
             <b><span id="label_game_phase_info" class="grey-text" style="font-size: 13px;"></span></b>
         </div>
         <div class="col s8">
-            <span class="orange-text"><b>TURN ORDER</b></span><br>
+            <span class="orange-text"><b>行动顺序</b></span><br>
             <div id="units_queue_container" class="items-container-y"></div>
         </div>
     </div>
     <div class="row" style="margin-top: 16px;">
         <div class="col center-align" style="margin-top: 0px;">
-            <span class="orange-text"><b>BATTLE LOG</b></span>
+            <span class="orange-text"><b>战斗日志</b></span>
             <div id="game_log" class="game-log grey-text text-lighten-1 scrollbar-y left-align"
                 style="font-size: 10px;"></div>
         </div>
@@ -91,7 +91,7 @@
             <div id="battlefield_container" class="items-container-y left" style="margin-top: -26px;"></div>
         </div>
         <div id="game_chat" class="col center-align" style="margin-top: -40px;">
-            <span class="orange-text"><b>CHAT</b></span>
+            <span class="orange-text"><b>聊天</b></span>
             <div id="chat_messages" class="game-chat grey-text text-lighten-4 scrollbar-y left-align"></div>
             <div class="input-field game-chat-input left-align">
                 <input id="chat_input" type="text">
@@ -108,7 +108,7 @@
             <img src="./assets/icons/treasure.png" style="height: 74px;" />
         </div>
         <div class="col s8">
-            <b><span id="label_description" class="orange-text">Dungeon Loot</span></b><br>
+            <b><span id="label_description" class="orange-text">地下城战利品</span></b><br>
             <div id="label_booty" class="white-text" style="padding-top: 6px;"> 100</div>
         </div>
     </div>
@@ -120,13 +120,12 @@
             <img src="./assets/icons/dungeon-01.png" style="height: 76px;" />
         </div>
         <div class="col s8" style="padding: 0;">
-            <b><span id="label_description" class="orange-text" style="padding-left: 0;">Abandon the
-                    Dungeon?</span></b><br>
-            <div id="label_booty" class="white-text" style="padding-top: 6px;">No loot for you!</div>
+            <b><span id="label_description" class="orange-text" style="padding-left: 0;">要放弃地下城吗？</span></b><br>
+            <div id="label_booty" class="white-text" style="padding-top: 6px;">你将无法获得战利品！</div>
         </div>
         <div class="col s12 center" style="padding-top: 10px;">
-            <button id="button_yes" class="btn-small green" style="margin-right: 2px;">Yes</button>
-            <button id="button_no" class="btn-small red" style="margin-left: 2px;">No</button><br>
+            <button id="button_yes" class="btn-small green" style="margin-right: 2px;">是</button>
+            <button id="button_no" class="btn-small red" style="margin-left: 2px;">否</button><br>
         </div>
     </div>
 </div>

@@ -240,20 +240,20 @@ export default class UnitConfigurator extends Component implements ServerCommuni
         this.unitProgress.descriptionPopup = this.itemDescription;
         this.unitResistance.descriptionPopup = this.itemDescription;
 
-        this.labelHealth.description = { Health: 'The hit points the character can take before dying' };
-        this.labelStamina.description = { Stamina: 'A weapon may require stamina points to perform an action' };
-        this.labelMana.description = { Mana: 'A weapon or spell may require mana points to perform an action' };
-        this.labelActionPoints.description = { ActionPoints: 'A weapon, spell, or disposable item may require action points to perform an action' };
-        this.labelStrength.description = { Strength: 'Enhances stabbing, cutting, crushing, and bleeding damage' };
-        this.labelPhysique.description = { Physique: 'Affects stun chance. For every 10 points, adds 1 point to all physical resistances' };
-        this.labelAgility.description = { Agility: 'Affects attack/dodge chance' };
-        this.labelEndurance.description = { Endurance: 'Affects stamina recovery' };
-        this.labelIntelligence.description = { Intelligence: 'Enhances fire, cold, lightning, acid, exhaustion, manaDrain, fear, curse, and madness damage.' };
-        this.labelInitiative.description = { Initiative: 'Affects turn order. For every 10 points, adds 1 action point' };
-        this.labelLuck.description = { Luck: 'Affects critical chance' };
-        this.unitBooty.description = { Booty: 'Character coins and rubies' };
-        this.unitProgress.description = { Progress: 'Character level, experience and attribute points' };
-        this.unitResistance.description = { Resistance: 'Character resistance' };
+        this.labelHealth.description = { Health: '角色在死亡前能够承受的伤害量' };
+        this.labelStamina.description = { Stamina: '使用武器进行行动可能需要消耗体力' };
+        this.labelMana.description = { Mana: '使用武器或法术进行行动可能需要消耗法力' };
+        this.labelActionPoints.description = { ActionPoints: '使用武器、法术或消耗品可能需要消耗行动点' };
+        this.labelStrength.description = { Strength: '提高穿刺、斩击、钝击和流血伤害' };
+        this.labelPhysique.description = { Physique: '影响眩晕概率；每 10 点体质使所有物理抗性提高 1 点' };
+        this.labelAgility.description = { Agility: '影响攻击命中和闪避概率' };
+        this.labelEndurance.description = { Endurance: '影响体力恢复' };
+        this.labelIntelligence.description = { Intelligence: '提高火焰、寒冷、闪电、酸蚀、疲劳、法力汲取、恐惧、诅咒和疯狂伤害。' };
+        this.labelInitiative.description = { Initiative: '影响行动顺序；每 10 点先攻增加 1 个行动点' };
+        this.labelLuck.description = { Luck: '影响暴击概率' };
+        this.unitBooty.description = { Booty: '角色拥有的金币和红宝石' };
+        this.unitProgress.description = { Progress: '角色的等级、经验和属性点' };
+        this.unitResistance.description = { Resistance: '角色的抗性' };
 
         this.instructionsPopup.shadow = this.popupShadow;
         this.shopItemPopup.shadow = this.popupShadow;
@@ -401,7 +401,7 @@ export default class UnitConfigurator extends Component implements ServerCommuni
         this.shopItems.set(data.uid!, iconItem);
         this.state.checkPrice(unit, data.price) ? iconItem.enable() : iconItem.disable();
         iconItem.unit = this.unitWithMaxedState();
-        iconItem.hint = iconItem.enabled ? 'Click to Buy' : '!Can\'t Buy';
+        iconItem.hint = iconItem.enabled ? '点击购买' : '!无法购买';
         iconItem.update(data, this.state);
     }
 
@@ -423,7 +423,7 @@ export default class UnitConfigurator extends Component implements ServerCommuni
         this.unitIcon.icon = clazz;
         this.unitIcon.description = { [clazz]: BASE_UNIT_DESCRIPTIONS[clazz].description };
         this.unitInfo.value = this.state.userState.playerInfo.nickname;
-        this.labelClass.value = clazz;
+        this.labelClass.value = this.renderer.capitalize(clazz);
         this.updateUnitInventoryIcons(this.state.userState.unit.inventory);
         this.updateBooty();
         this.updateResistance();
@@ -446,35 +446,35 @@ export default class UnitConfigurator extends Component implements ServerCommuni
 
     protected updateBooty(): void {
         const bt: UnitBooty = this.state.userState.unit.booty;
-        this.unitBooty.htmlValue = `${this.keyValueIcon('Coins', 'coin', bt.coins)}<br>
-                                ${this.keyValueIcon('Ruby', 'ruby', bt.ruby)}<br>`;
+        this.unitBooty.htmlValue = `${this.keyValueIcon('金币', 'coin', bt.coins)}<br>
+                                ${this.keyValueIcon('红宝石', 'ruby', bt.ruby)}<br>`;
     }
 
     protected updateResistance(): void {
         const res: UnitResistance = this.state.userState.unit.stats.resistance;
-        this.unitResistance.htmlValue = `${this.keyValue('Stabbing', res.stabbing || 0)}${this.extraResist('stabbing')}<br>
-                                     ${this.keyValue('Cutting', res.cutting || 0)}${this.extraResist('cutting')}<br>
-                                     ${this.keyValue('Crushing', res.crushing || 0)}${this.extraResist('crushing')}<br>
-                                     ${this.keyValue('Fire', res.fire || 0)}${this.extraResist('fire')}<br>
-                                     ${this.keyValue('Cold', res.cold || 0)}${this.extraResist('cold')}<br>
-                                     ${this.keyValue('Lightning', res.lightning || 0)}${this.extraResist('lightning')}<br>
-                                     ${this.keyValue('Acid', res.acid || 0)}${this.extraResist('acid')}<br>
-                                     ${this.keyValue('Poison', res.poison || 0)}${this.extraResist('poison')}<br>
-                                     ${this.keyValue('Exhaustion', res.exhaustion || 0)}${this.extraResist('exhaustion')}<br>
-                                     ${this.keyValue('ManaDrain', res.manaDrain || 0)}${this.extraResist('manaDrain')}<br>
-                                     ${this.keyValue('Bleeding', res.bleeding || 0)}${this.extraResist('bleeding')}<br>
-                                     ${this.keyValue('Fear', res.fear || 0)}${this.extraResist('fear')}<br>
-                                     ${this.keyValue('Curse', res.curse || 0)}${this.extraResist('curse')}<br>
-                                     ${this.keyValue('Madness', res.madness || 0)}${this.extraResist('madness')}<br>
+        this.unitResistance.htmlValue = `${this.keyValue('穿刺', res.stabbing || 0)}${this.extraResist('stabbing')}<br>
+                                     ${this.keyValue('斩击', res.cutting || 0)}${this.extraResist('cutting')}<br>
+                                     ${this.keyValue('钝击', res.crushing || 0)}${this.extraResist('crushing')}<br>
+                                     ${this.keyValue('火焰', res.fire || 0)}${this.extraResist('fire')}<br>
+                                     ${this.keyValue('寒冷', res.cold || 0)}${this.extraResist('cold')}<br>
+                                     ${this.keyValue('闪电', res.lightning || 0)}${this.extraResist('lightning')}<br>
+                                     ${this.keyValue('酸蚀', res.acid || 0)}${this.extraResist('acid')}<br>
+                                     ${this.keyValue('中毒', res.poison || 0)}${this.extraResist('poison')}<br>
+                                     ${this.keyValue('疲劳', res.exhaustion || 0)}${this.extraResist('exhaustion')}<br>
+                                     ${this.keyValue('法力汲取', res.manaDrain || 0)}${this.extraResist('manaDrain')}<br>
+                                     ${this.keyValue('流血', res.bleeding || 0)}${this.extraResist('bleeding')}<br>
+                                     ${this.keyValue('恐惧', res.fear || 0)}${this.extraResist('fear')}<br>
+                                     ${this.keyValue('诅咒', res.curse || 0)}${this.extraResist('curse')}<br>
+                                     ${this.keyValue('疯狂', res.madness || 0)}${this.extraResist('madness')}<br>
                                      `;
     }
 
     protected updateProgress(): void {
         const pr: UnitProgress = this.state.userState.unit.stats.progress;
-        this.unitProgress.htmlValue = `${this.keyValue('Level', pr.level)}<br>
-                                   ${this.keyValue('Exp', pr.experience, pr.experienceNext)}<br>
-                                   ${this.keyValue('Base Attr Points', pr.baseAttributesPoints || 0)}<br>
-                                   ${this.keyValue('Attr Points', pr.attributesPoints || 0)}`;
+        this.unitProgress.htmlValue = `${this.keyValue('等级', pr.level)}<br>
+                                   ${this.keyValue('经验', pr.experience, pr.experienceNext)}<br>
+                                   ${this.keyValue('基础属性点', pr.baseAttributesPoints || 0)}<br>
+                                   ${this.keyValue('属性点', pr.attributesPoints || 0)}`;
         pr.experience >= pr.experienceNext! ? this.btnLevelUp.show() : this.btnLevelUp.hide();
     }
 
@@ -495,23 +495,23 @@ export default class UnitConfigurator extends Component implements ServerCommuni
         hasAttributes ? this.btnInitiative.show() : this.btnInitiative.hide();
         hasAttributes ? this.btnLuck.show() : this.btnLuck.hide();
 
-        this.labelHealth.htmlValue = this.keyValue('Health', battr.health ?? 0) + this.extraBaseAttribute('health');
-        this.labelStamina.htmlValue = this.keyValue('Stamina', battr.stamina ?? 0) + this.extraBaseAttribute('stamina');
-        this.labelMana.htmlValue = this.keyValue('Mana', battr.mana ?? 0) + this.extraBaseAttribute('mana');
+        this.labelHealth.htmlValue = this.keyValue('生命值', battr.health ?? 0) + this.extraBaseAttribute('health');
+        this.labelStamina.htmlValue = this.keyValue('体力', battr.stamina ?? 0) + this.extraBaseAttribute('stamina');
+        this.labelMana.htmlValue = this.keyValue('法力', battr.mana ?? 0) + this.extraBaseAttribute('mana');
         this.labelActionPoints.htmlValue =
-            this.keyValue('Action Points', battr.actionPoints) +
+            this.keyValue('行动点', battr.actionPoints) +
             this.extraValue(
                 this.extraAttributeValue('actionPoints') +
                 Math.max(0, Math.floor((attr.initiative + this.extraAttributeValue('initiative')) / 10))
             );
 
-        this.labelStrength.htmlValue = this.keyValue('Strength', attr.strength ?? 0) + this.extraAttribute('strength');
-        this.labelPhysique.htmlValue = this.keyValue('Physique', attr.physique ?? 0) + this.extraAttribute('physique');
-        this.labelAgility.htmlValue = this.keyValue('Agility', attr.agility ?? 0) + this.extraAttribute('agility');
-        this.labelEndurance.htmlValue = this.keyValue('Endurance', attr.endurance ?? 0) + this.extraAttribute('endurance');
-        this.labelIntelligence.htmlValue = this.keyValue('Intelligence', attr.intelligence ?? 0) + this.extraAttribute('intelligence');
-        this.labelInitiative.htmlValue = this.keyValue('Initiative', attr.initiative ?? 0) + this.extraAttribute('initiative');
-        this.labelLuck.htmlValue = this.keyValue('Luck', attr.luck ?? 0) + this.extraAttribute('luck');
+        this.labelStrength.htmlValue = this.keyValue('力量', attr.strength ?? 0) + this.extraAttribute('strength');
+        this.labelPhysique.htmlValue = this.keyValue('体质', attr.physique ?? 0) + this.extraAttribute('physique');
+        this.labelAgility.htmlValue = this.keyValue('敏捷', attr.agility ?? 0) + this.extraAttribute('agility');
+        this.labelEndurance.htmlValue = this.keyValue('耐力', attr.endurance ?? 0) + this.extraAttribute('endurance');
+        this.labelIntelligence.htmlValue = this.keyValue('智力', attr.intelligence ?? 0) + this.extraAttribute('intelligence');
+        this.labelInitiative.htmlValue = this.keyValue('先攻', attr.initiative ?? 0) + this.extraAttribute('initiative');
+        this.labelLuck.htmlValue = this.keyValue('幸运', attr.luck ?? 0) + this.extraAttribute('luck');
     }
 
     protected extraResist(key: string): string {
@@ -623,12 +623,12 @@ export default class UnitConfigurator extends Component implements ServerCommuni
 
     protected updateUnitItemHint(iconItem: ItemIcon, data: InventoryItem): void {
         if (this.checkboxSell.checked) {
-            iconItem.hint = data.canBeSold ? 'Click to Sell' : '!Can\'t Sell';
+            iconItem.hint = data.canBeSold ? '点击出售' : '!无法出售';
             return;
         }
         if (this.checkboxRepair.checked) {
             if (data.type === ItemType.WEAPON || data.type === ItemType.ARMOR) {
-                iconItem.hint = (data as Weapon).wearout ? 'Click to Repair' : '';
+                iconItem.hint = (data as Weapon).wearout ? '点击修理' : '';
             } else {
                 iconItem.hint = '';
             }
@@ -638,9 +638,9 @@ export default class UnitConfigurator extends Component implements ServerCommuni
             data.type === ItemType.ARMOR ||
             data.type === ItemType.AMMUNITION) {
             if (!iconItem.usable) {
-                iconItem.hint = '!Can\'t Use';
+                iconItem.hint = '!无法使用';
             } else {
-                iconItem.hint = (data as Weapon).equipped ? 'Click to Unequip' : 'Click to Euip';
+                iconItem.hint = (data as Weapon).equipped ? '点击卸下' : '点击装备';
             }
             return;
         }
